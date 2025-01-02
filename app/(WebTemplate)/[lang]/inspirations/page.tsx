@@ -23,11 +23,16 @@ export async function generateMetadata({
   // const {
   //   data: { configuration },
   // } = await apiGetTemplateConfiguration();
-  const configuration = await prisma.configuration.findFirst({
-    select: {
-      siteDescription: true,
+  const configuration = await prisma.configuration.findFirst(
+    {
+      select: {
+        siteDescription: true,
+      },
     },
-  });
+    {
+      timeout: 120000,
+    }
+  );
 
   const metaDescription = removeParaTagsFromString(
     configuration?.siteDescription as string
@@ -74,81 +79,86 @@ async function Inspirations({
   const pageSize = "9";
   const pageNum = "1";
   const [inspirationCount, inspirations, featuredInspirations] =
-    await prisma.$transaction([
-      prisma.inspirations.count({
-        where: {
-          isFeatured: false,
-          isActive: true,
-          isDeleted: false,
-          ...(destinationId && { destinationId: Number(destinationId) }),
-          ...(holidayTypeId && { holidayTypeId: Number(holidayTypeId) }),
-        },
-      }),
-      prisma.inspirations.findMany({
-        ...(pageNum && { skip: (Number(pageNum) - 1) * Number(pageSize) }),
-        ...(pageSize && { take: Number(pageSize) }),
-        where: {
-          isFeatured: false,
-          isActive: true,
-          isDeleted: false,
-
-          ...(destinationId && {
-            destination: { some: { id: Number(destinationId) } },
-          }),
-          ...(holidayTypeId && {
-            holidayType: { some: { id: Number(holidayTypeId) } },
-          }),
-        },
-
-        orderBy: {
-          inspirationSortId: "desc",
-        },
-
-        include: {
-          media: true,
-          destination: true,
-          seoMeta: true,
-          InspirationsTranslation: {
-            where: {
-              language: {
-                locale: lang,
-              },
-            },
+    await prisma.$transaction(
+      [
+        prisma.inspirations.count({
+          where: {
+            isFeatured: false,
+            isActive: true,
+            isDeleted: false,
+            ...(destinationId && { destinationId: Number(destinationId) }),
+            ...(holidayTypeId && { holidayTypeId: Number(holidayTypeId) }),
           },
-          inspirationDetail: {
-            include: {
-              InspirationDetailTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
-                  },
+        }),
+        prisma.inspirations.findMany({
+          ...(pageNum && { skip: (Number(pageNum) - 1) * Number(pageSize) }),
+          ...(pageSize && { take: Number(pageSize) }),
+          where: {
+            isFeatured: false,
+            isActive: true,
+            isDeleted: false,
+
+            ...(destinationId && {
+              destination: { some: { id: Number(destinationId) } },
+            }),
+            ...(holidayTypeId && {
+              holidayType: { some: { id: Number(holidayTypeId) } },
+            }),
+          },
+
+          orderBy: {
+            inspirationSortId: "desc",
+          },
+
+          include: {
+            media: true,
+            destination: true,
+            seoMeta: true,
+            InspirationsTranslation: {
+              where: {
+                language: {
+                  locale: lang,
                 },
               },
-              media: true,
             },
-          },
-        },
-      }),
-      prisma.inspirations.findMany({
-        where: {
-          isFeatured: true,
-          isDeleted: false,
-          isActive: true,
-        },
-        include: {
-          media: true,
-          destination: true,
-          seoMeta: true,
-          InspirationsTranslation: {
-            where: {
-              language: {
-                locale: lang,
+            inspirationDetail: {
+              include: {
+                InspirationDetailTranslation: {
+                  where: {
+                    language: {
+                      locale: lang,
+                    },
+                  },
+                },
+                media: true,
               },
             },
           },
-        },
-      }),
-    ]);
+        }),
+        prisma.inspirations.findMany({
+          where: {
+            isFeatured: true,
+            isDeleted: false,
+            isActive: true,
+          },
+          include: {
+            media: true,
+            destination: true,
+            seoMeta: true,
+            InspirationsTranslation: {
+              where: {
+                language: {
+                  locale: lang,
+                },
+              },
+            },
+          },
+        }),
+      ],
+      {
+        timeout: 120000,
+      }
+    );
   const [inspirationResponse, featuredInspirationsResponse] = await Promise.all(
     [
       convertMediaIdsResponseIntoMediaUrl(inspirations),

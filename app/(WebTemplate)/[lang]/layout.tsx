@@ -105,63 +105,68 @@ export default async function Layout({
   // } = await apiGetTemplateConfiguration({ locale });
   try {
     const [destinations, inspirations, configuration] =
-      await prisma.$transaction([
-        prisma.destinations.findMany({
-          where: {
-            isActive: true,
-            isDeleted: false,
-          },
-          include: {
-            seoMeta: true,
-            DestinationsTranslation: {
-              where: {
-                language: {
-                  locale: lang,
+      await prisma.$transaction(
+        [
+          prisma.destinations.findMany({
+            where: {
+              isActive: true,
+              isDeleted: false,
+            },
+            include: {
+              seoMeta: true,
+              DestinationsTranslation: {
+                where: {
+                  language: {
+                    locale: lang,
+                  },
+                },
+              },
+              placeToVisit: {
+                where: {
+                  isActive: true,
+                  isDeleted: false,
                 },
               },
             },
-            placeToVisit: {
-              where: {
-                isActive: true,
-                isDeleted: false,
-              },
+          }),
+          prisma.inspirations.findMany({
+            where: {
+              isActive: true,
+              isDeleted: false,
             },
-          },
-        }),
-        prisma.inspirations.findMany({
-          where: {
-            isActive: true,
-            isDeleted: false,
-          },
-          include: {
-            destination: true,
-            seoMeta: true,
-            InspirationsTranslation: {
-              where: {
-                language: {
-                  locale: lang,
+            include: {
+              destination: true,
+              seoMeta: true,
+              InspirationsTranslation: {
+                where: {
+                  language: {
+                    locale: lang,
+                  },
                 },
               },
             },
-          },
-          orderBy: {
-            id: "desc",
-          },
-          take: 3,
-        }),
-        prisma.configuration.findFirst({
-          include: {
-            media: true,
-            ConfigurationTranslation: {
-              where: {
-                language: {
-                  locale: lang,
+            orderBy: {
+              id: "desc",
+            },
+            take: 3,
+          }),
+          prisma.configuration.findFirst({
+            include: {
+              media: true,
+              ConfigurationTranslation: {
+                where: {
+                  language: {
+                    locale: lang,
+                  },
                 },
               },
             },
-          },
-        }),
-      ]);
+          }),
+        ],
+        {
+          timeout: 120000,
+        }
+      );
 
     const configurationResponse = await convertMediaIdsResponseIntoMediaUrl(
       configuration
