@@ -23,16 +23,11 @@ export async function generateMetadata({
   // const {
   //   data: { configuration },
   // } = await apiGetTemplateConfiguration();
-  const configuration = await prisma.configuration.findFirst(
-    {
-      select: {
-        siteDescription: true,
-      },
+  const configuration = await prisma.configuration.findFirst({
+    select: {
+      siteDescription: true,
     },
-    {
-      timeout: 120000,
-    }
-  );
+  });
 
   const metaDescription = removeParaTagsFromString(
     configuration?.siteDescription as string
