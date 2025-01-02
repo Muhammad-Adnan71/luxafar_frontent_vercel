@@ -85,16 +85,38 @@ async function InspirationsDestination({
   const pageSize = "9";
   const pageNum = "1";
   const [featuredInspiration, inspirationCount, inspirations] =
-    await prisma.$transaction(
-      async (tx) => {
-        let featuredInspiration = await tx.inspirations.findFirst({
+    await prisma.$transaction(async (tx) => {
+      let featuredInspiration = await tx.inspirations.findFirst({
+        where: {
+          isDeleted: false,
+          isFeatured: true,
+
+          ...(destinationName && {
+            destination: { some: { name: destinationName } },
+          }),
+        },
+        include: {
+          media: true,
+          destination: true,
+          seoMeta: true,
+          InspirationsTranslation: {
+            where: {
+              language: {
+                locale: lang,
+              },
+            },
+          },
+        },
+      });
+
+      if (!featuredInspiration) {
+        featuredInspiration = await tx.inspirations.findFirst({
           where: {
             isDeleted: false,
-            isFeatured: true,
-
-            ...(destinationName && {
-              destination: { some: { name: destinationName } },
+            ...(name && {
+              destination: { some: { name: name } },
             }),
+            sortId: 1,
           },
           include: {
             media: true,
@@ -109,95 +131,68 @@ async function InspirationsDestination({
             },
           },
         });
+      }
+      console.log(destinationName, "asgdjagsasdasjdgjasgd");
+      const inspirationCount = await tx.inspirations.count({
+        where: {
+          isDeleted: false,
+          isFeatured: false,
+          isActive: true,
 
-        if (!featuredInspiration) {
-          featuredInspiration = await tx.inspirations.findFirst({
+          ...(name && {
+            destination: { some: { name: name } },
+          }),
+        },
+      });
+      const inspirations = await tx.inspirations.findMany({
+        ...(pageNum && {
+          skip: (Number(pageNum) - 1) * Number(pageSize),
+        }),
+        ...(pageSize && { take: Number(pageSize) }),
+        where: {
+          isDeleted: false,
+          isFeatured: false,
+
+          id: {
+            not: featuredInspiration?.id,
+          },
+          isActive: true,
+          ...(name && {
+            destination: { some: { name: name } },
+          }),
+        },
+
+        orderBy: {
+          id: "asc",
+        },
+
+        include: {
+          media: true,
+          seoMeta: true,
+          destination: true,
+          InspirationsTranslation: {
             where: {
-              isDeleted: false,
-              ...(name && {
-                destination: { some: { name: name } },
-              }),
-              sortId: 1,
+              language: {
+                locale: lang,
+              },
             },
+          },
+          inspirationDetail: {
             include: {
-              media: true,
-              destination: true,
-              seoMeta: true,
-              InspirationsTranslation: {
+              InspirationDetailTranslation: {
                 where: {
                   language: {
                     locale: lang,
                   },
                 },
               },
-            },
-          });
-        }
-        console.log(destinationName, "asgdjagsasdasjdgjasgd");
-        const inspirationCount = await tx.inspirations.count({
-          where: {
-            isDeleted: false,
-            isFeatured: false,
-            isActive: true,
-
-            ...(name && {
-              destination: { some: { name: name } },
-            }),
-          },
-        });
-        const inspirations = await tx.inspirations.findMany({
-          ...(pageNum && {
-            skip: (Number(pageNum) - 1) * Number(pageSize),
-          }),
-          ...(pageSize && { take: Number(pageSize) }),
-          where: {
-            isDeleted: false,
-            isFeatured: false,
-
-            id: {
-              not: featuredInspiration?.id,
-            },
-            isActive: true,
-            ...(name && {
-              destination: { some: { name: name } },
-            }),
-          },
-
-          orderBy: {
-            id: "asc",
-          },
-
-          include: {
-            media: true,
-            seoMeta: true,
-            destination: true,
-            InspirationsTranslation: {
-              where: {
-                language: {
-                  locale: lang,
-                },
-              },
-            },
-            inspirationDetail: {
-              include: {
-                InspirationDetailTranslation: {
-                  where: {
-                    language: {
-                      locale: lang,
-                    },
-                  },
-                },
-                media: true,
-              },
+              media: true,
             },
           },
-        });
-        return [featuredInspiration, inspirationCount, inspirations];
-      },
-      {
-        timeout: 1200000,
-      }
-    );
+        },
+      });
+      return [featuredInspiration, inspirationCount, inspirations];
+    });
 
   const [inspirationsResponse, featuredInspirationResponse] = await Promise.all(
     [

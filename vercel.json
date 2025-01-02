@@ -1,0 +1,12 @@
+{
+    "functions": {
+      "app/**/*.tsx": {
+        "memory": 3009,
+        "maxDuration": 60
+      },
+      "app/**/*.ts": {
+        "memory": 3009,
+        "maxDuration": 60
+      }
+    }
+}
