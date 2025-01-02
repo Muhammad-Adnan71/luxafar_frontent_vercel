@@ -1403,8 +1403,5 @@ export async function generateStaticParams() {
     }
   }
 
-  // Optional: Log the paths being generated
-  console.log(`Generating ${params.length} static paths`);
-
   return params;
 }

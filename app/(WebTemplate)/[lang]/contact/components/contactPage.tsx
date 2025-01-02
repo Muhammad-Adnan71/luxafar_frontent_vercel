@@ -25,7 +25,7 @@ async function ContactPage({ page, locale }: { page: any; locale?: any }) {
     successModal,
     errors,
   } = await getDictionary(locale);
-  console.log(page,"asdnasdlaskdansfkmdnakms");
+
   const getCookie = cookies();
   const breadCrumbs = [
     { name: breadCrumb.home, url: pathNameByLocale(locale, "/") },

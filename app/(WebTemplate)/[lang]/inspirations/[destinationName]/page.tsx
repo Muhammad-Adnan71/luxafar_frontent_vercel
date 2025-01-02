@@ -261,9 +261,6 @@ async function InspirationsDestination({
     inspirationPage,
   } = await getDictionary(lang);
 
-  console.log(inspirationCount, "asdbajkshdkhasd");
-  console.log(inspiration);
-
   return (
     <>
       <script
