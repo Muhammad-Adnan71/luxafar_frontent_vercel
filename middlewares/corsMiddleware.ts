@@ -10,6 +10,7 @@ const allowedOrigins = [
   "54.254.236.177:8070",
   "192.168.20.229:3000",
   "10.1.10.17:3000",
+  "luxafar-frontent-vercel.vercel.app"
 ];
 export function withCors(middleware: CustomMiddleware) {
   return (

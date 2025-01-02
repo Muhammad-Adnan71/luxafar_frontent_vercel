@@ -4,6 +4,7 @@ module.exports = {
   experimental: {
     missingSuspenseWithCSRBailout: false,
   },
+  staticPageGenerationTimeout: 200000,
   headers: async () => [
     {
       source: "/:path*", // Match all routes
