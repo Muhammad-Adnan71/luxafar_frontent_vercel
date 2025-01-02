@@ -311,10 +311,10 @@ export async function generateStaticParams() {
   for (const language of languages) {
     // For inspirationDestination
     for (const inspirationDestination of inspirationDestinations) {
-      if (inspirationDestination.name) {
+      if (inspirationDestination.seoMeta.slug) {
         params.push({
           lang: language.locale,
-          destinationName: inspirationDestination.name,
+          destinationName: inspirationDestination.seoMeta.slug,
         });
       }
     }
