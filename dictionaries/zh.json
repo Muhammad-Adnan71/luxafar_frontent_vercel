@@ -1,0 +1,277 @@
+{
+  "navigation": {
+    "bespokeHoliday": "定制假期",
+    "destination": "目的地",
+    "tours": "旅游",
+    "holidayTypes": "假日类型",
+    "inspirations": "灵感",
+    "shop": "购物",
+    "contact": "联系我们",
+    "about": "关于我们",
+    "privacyPolicy": "隐私政策",
+    "cookiePolicy": "曲奇饼 政策",
+    "termsAndConditions": "条款和条件",
+    "becomePartner": "成为合作伙伴"
+  },
+  "tooltip": {
+    "comingSoon": "即将推出"
+  },
+  "placeholder": {
+    "name": "姓名",
+    "firstName": "名字",
+    "lastName": "姓氏",
+    "yourName": "你的名字",
+    "email": "电子邮件地址",
+    "noOfTravelers": "旅行者人数",
+    "selectTravelingDates": "选择旅行日期",
+    "contactEmail": "联系人邮箱",
+    "phone": "电话号码",
+    "contactTelePhone": "联系人电话号码",
+    "subject": "主题",
+    "message": "留言",
+    "code": "代码",
+    "jobTitle": "职称",
+    "destination": "你想去哪里?",
+    "tripLength": "行程长度（天）",
+    "companyName": "您的公司/产品名称",
+    "productService": "你的产品或服务是什么",
+    "websiteAddress": "网站地址（如果适用）",
+    "otherCountry": "请指定其他国家",
+    "somewhereElse": "别的地方",
+    "whenIsTheHoliday": "假期是什麼時候？",
+    "whereDidYouHearAboutUs": "你從哪裡知道我們的？",
+    "socialMedia": "社群媒體",
+    "google": "Google",
+    "emailMarketing": "電子郵件行銷",
+    "clientReferral": "客戶推薦",
+    "other": "其他",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "linkedin": "Linkedin",
+    "clientName": "客戶名稱"
+  },
+  "breadCrumb": {
+    "home": "主页",
+    "blogs": "博客",
+    "contactUs": "联系我们",
+    "about": "关于我们",
+    "becomeAPartner": "成为合作伙伴",
+    "cookiePolicy": "曲奇饼 政策",
+    "privacyPolicy": "隐私政策",
+    "termsAndConditions": "条款和条件",
+    "tours": "旅游",
+    "bespokeHoliday": "定制假期",
+    "holidayType": "假日类型"
+  },
+  "button": {
+    "nextPage": "下一页",
+    "prevPage": "前一页",
+    "send": "发送",
+    "submit": "提交",
+    "clearAll": "全部清除",
+    "subscribe": "订阅",
+    "getBespokePlan": "获取定制计划",
+    "learnMore": "了解更多",
+    "readMore": "阅读更多",
+    "viewAllPlaces": "查看所有地点",
+    "collapseAll": "全部折叠",
+    "expandAll": "全部展开",
+    "browseAllTours": "浏览所有旅游",
+    "browseAllInspiration": "浏览所有灵感",
+    "seeAllInspiration": "查看所有灵感",
+    "seeAllAttractions": "查看所有景点",
+    "viewTour": "查看旅游",
+    "seeFeaturedTour": "查看精选之旅",
+    "reserveTour": "预订行程",
+    "reserveThisTour": "预订此行程",
+    "preferCustomTour": "首选定制之旅",
+    "gallery": "图库",
+    "proceedToNext": "前进到下一步",
+    "viewMore": "查看更多"
+  },
+  "errors": {
+    "nameRequired": "姓名为必填项",
+    "firstNameRequired": "名字为必填项",
+    "lastNameRequired": "姓氏为必填项",
+    "emailRequired": "电子邮件为必填项",
+    "emailInvalid": "电子邮件无效",
+    "phoneRequired": "电话号码为必填项",
+    "messageRequired": "留言为必填项",
+    "subjectRequired": "主题为必填项",
+    "noOfTravelersRequired": "旅客人数为必填项",
+    "dateRequired": "表格日期为必填项",
+    "fromDateRequired": "旅行开始日期为必填项",
+    "toDateRequired": "旅行结束日期为必填项",
+    "companyNameRequired": "公司/产品名称为必填项",
+    "serviceRequired": "所需服务/产品",
+    "jobTitleRequired": "职位名称为必填项",
+    "relevantDepartmentRequired": "相关部门为必填项"
+  },
+  "radioButton": {
+    "marketing": "市场营销",
+    "hr": "人力资源",
+    "it": "它",
+    "finance": "金融",
+    "procurement": "采购",
+    "travelProduct": "旅行产品",
+    "yes": "是的",
+    "no": "没有"
+  },
+  "dropdown": {
+    "label": {
+      "destination": "按目的地选择",
+      "holidayType": "按假期类型选择"
+    },
+    "placeholder": {
+      "destination": "点击这里选择目的地",
+      "holidayType": "点击这里选择假期类型"
+    }
+  },
+  "social": {
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram"
+  },
+  "footer": {
+    "email": "电子邮件",
+    "whatsAppNo": "微信没有",
+    "blogs": "博客",
+    "links": "链接",
+    "subscribe": "订阅",
+    "copyrights": "LUXAFAR。由... 提供支持"
+  },
+  "contactDrawer": {
+    "contactHeading": "准备好了 <br /> 探索一个世界 <br /> 难以想象的奢华"
+  },
+  "bespokePage": {
+    "letsPlan": "我们来计划吧",
+    "your": "我们来计划吧",
+    "journey": "旅程",
+    "heading": "让我们计划吧 <br /> 你的 <strong class='inline text-secondary-color'>旅程</strong>",
+    "paragraph": "使用我们的独家创作套餐开启一段非凡的旅程。每一个细节，每一个愿望，都精心编织成一个定制的假期。这是你的冒险，你的方式，证明你的个性。欢迎来到专为您打造的世界."
+  },
+  "holidayTypePage": {
+    "chooseYour": "选择你的",
+    "HolidayType": "假日类型",
+    "bannerHeading": "假日类型",
+    "sectionTitle": "选择你的 <strong class='block text-secondary-color !font-heading'>假日类型</strong> "
+  },
+  "sectionHeadings": {
+    "browseOur": "浏览我们的",
+    "tours": "旅游",
+    "recommendedTours": " 推荐的 &nbsp;<strong class='inline text-secondary-color !font-heading '> 旅游 </strong> ",
+    "blogs": "博客",
+    "becomePartner": "你会吗 <br /> 喜欢 <strong class='inline text-secondary-color'>工作</strong> <br /> <strong class='inline-block text-secondary-color'>和我们在一起?</strong>",
+    "testimonialClientLove": "客户 <strong class='block -mt-2 text-secondary-color font-heading text-right max-lg:inline-block max-lg:ml-3 capitalize '> 爱 </strong>",
+    "youMightAlsoLike": "你可能会 <br /> 还有 <span class='inline-block' data-scroll data-scroll-speed='.5' data-scroll-direction='vertical' > <strong class='text-secondary-color inline-block font-[700]'> 喜欢 </strong> </span>",
+    "articlesForYourGuidance": "<span data-scroll data-scroll-speed='.5' data-scroll-direction='vertical' class='inline-block' > <strong class='text-secondary-color font-[700] inline-block'> 文章 </strong> </span> 为了你的 <br class='max-sm:hidden' /> 指导",
+    "recommendedPlaces": "推荐的 <strong class='block text-secondary-color !font-heading md:ml-2'> 地点 </strong>"
+  },
+  "inspirationPage": {
+    "featured": "精选",
+    "clearAll": "全部清除",
+    "mins": "分钟"
+  },
+  "becomePartnerPage": {
+    "paragraph": "如果你有你认为我们会感兴趣的产品或服务，我们很乐意听取你的意见。请填写下面的联系表，以便我们可以将您的询问转给相关团队。<br /><br />如果对机会感兴趣，团队成员将与您联系。我们恳请您耐心等待我们的回复.",
+    "formHeading": "你联系我们是为了什么?",
+    "radioButtonHeading": "您的产品/服务与哪个部门最相关?",
+    "contactDetailHeading": "您的联系方式"
+  },
+  "tabsContents": {
+    "travelGuide": "旅行指南",
+    "tours": "旅游",
+    "placesToVisit": "值得参观的地方",
+    "thingsTodDo": "待办事项",
+    "seasonsToVisit": "值得参观的季节",
+    "overview": "概述",
+    "dayToDayItinerary": "日常行程",
+    "datesAndPrices": "日期和价格",
+    "whatToExpect": "会发生什么"
+  },
+  "planContactBanner": {
+    "heading": "准备好了 <strong class='inline-block max-sm:inline text-secondary-color !font-heading sm:ml-2'>&nbsp;计划 <br class='sm:hidden' /> 你的旅程? </strong>",
+    "heading2": "想要 <strong class='inline-block max-sm:inline text-secondary-color !font-heading sm:ml-2'> 计划 <br class='sm:hidden' /> 你的旅程? </strong>",
+    "description": "无论您想从旅行中得到什么，我们的专业旅行设计师团队都随时准备为您提供帮助。",
+    "description1": "无论你想从你那里得到什么",
+    "description2": "旅游，我们的专业旅行设计师团队随时准备为您提供帮助。"
+  },
+
+  "destinationPage": {
+    "allAbout": "全部关于",
+    "contactHeading": "联系目的地专家",
+    "receiveUpdates": "想收到我们的最新行程更新吗？",
+    "browseOur": "浏览我们的",
+    "toursTo": "游览至",
+    "browseAttraction": " 浏览 <strong class='text-secondary-color !font-heading ml-3'> 景点 </strong> <span class='block'> 为了你的 <strong class='text-secondary-color !font-heading ml-3'> 行程 </strong> </span> ",
+    "articlesRelated": "相关文章",
+    "articlesRelatedTo": "至",
+    "gallery": "图库",
+    "daysPlan": "天数计划",
+    "getInspired": "得到&nbsp; <strong class='text-secondary-color !font-heading is-inview '> 受到启发 </strong>",
+    "placesWhereYouCanGo": " <strong class='inline-block text-secondary-color !font-heading '> 地点 </strong> <span class='ml-3'>在哪里</span> <span class='block'> 你可以走了</span> ",
+    "getTripIdeas": " 得到 &nbsp;<strong class='inline-block text-secondary-color !font-heading'>旅行创意 </strong> ",
+    "ultimateGuideForThingsToDo": "<strong class='block text-secondary-color !font-heading is-inview '> 终极指南 </strong> 为了做事情",
+    "featuredTour": "精选之旅",
+    "seasonsToVisitHeading": "<strong class='block text-secondary-color !font-heading is-inview'>四季&nbsp</strong>去参观",
+    "period": "时期",
+    "highAndLows": "高点和低点",
+    "in": "在",
+    "eventsAndOccasions": "活动与场合",
+    "overviewAbout": "概述 <br /> 关于",
+    "pricingFrom": "来自",
+    "pricingPerPerson": "每人",
+    "airFareIncluded": "*包括机票",
+    "airFareNotIncluded": "*不包括机票",
+    "pricingYourOwnAdventure": "这次旅行可以 <br class='sm:hidden' /> 成为 <br class='max-sm:hidden' /> 你的 <strong class='sm:inline-block text-secondary-color'> 自己的冒险 </strong>",
+    "bookingFrom": "预订表格",
+    "highlights": "亮点",
+    "itineraryAndAccommodations": "<strong class='text-secondary-color font-[700]'> 行程 </strong> &<br /> 住宿",
+    "itineraryDay": "天",
+    "itineraryAccommodation": "住宿",
+    "datesAndPrices": " 日期和价格",
+    "tripLength": "行程时长",
+    "datesAndPricesDays": "天数",
+    "datesAndPricesFrom": "来自",
+    "tours": "旅游",
+    "tripCost": "旅行费用",
+    "makeItPrivate": "让它成为现实 <strong class=' text-secondary-color'>私人的</strong>",
+    "makeItPrivateGuests": "客人",
+    "makeItPrivatePerPerson": "每人",
+    "whatsIncluded": "什么是 <strong class=' text-secondary-color'>已包含</strong>",
+    "whatToExpectHeading": "要做什么 <strong class='text-secondary-color inline-block ml-3'> 期待 </strong>",
+    "physicalActivity": "<strong class='text-secondary-color inline-block '> 身体的 </strong> 活动",
+    "meetingPoint": "<strong class='text-secondary-color inline-block '> 会议 </strong> 点",
+    "departurePoint": "<strong class='text-secondary-color inline-block '> 出发 </strong> 点",
+    "travelingToAndFrom": "<strong class='text-secondary-color inline-block '> 旅行 </strong> 起点和起点",
+    "weather": "天气",
+    "whenToGo": "什么时候去",
+    "cuisine": "料理",
+    "ideasForYourTrip": "的想法 <br class='sm:hidden' /> 你的 <br class='max-sm:hidden' /> 前往 <br class='sm:hidden' />"
+  },
+  "toursPage": {
+    "featuredHeading": "精选",
+    "featuredSliderDay": "天数",
+    "featuredSliderNight": "夜晚",
+    "planYourJourney": "让我们来吧&rsquo;s 计划 <br class='max-sm:hidden' /> 你的 <br class='sm:hidden' /> <strong class='inline text-secondary-color'>旅程</strong>"
+  },
+  "becomeAPartnerPage": {
+    "heading": "你会吗 <br /> Like to <strong class='inline text-secondary-color'>工作</strong> <br /> <strong class='inline text-secondary-color'>和我们在一起?</strong>",
+    "paragraph": "如果你有你认为我们会感兴趣的产品或服务，我们很乐意听取你的意见。请填写下面的联系表，以便我们可以将您的询问转给相关团队。<br /><br />如果对机会感兴趣，团队成员将与您联系。我们恳请您等待我们的回复。",
+    "contactingAbout": "你联系我们是为了什么？",
+    "radioButtonHeading": "您的产品/服务与哪个部门最相关？",
+    "contactDetailHeading": "您的联系方式"
+  },
+  "successModal": {
+    "heading": "谢谢",
+    "message": "我们的旅行专家将尽快与您联系."
+  },
+  "notFound": {
+    "pageNotFound": "抱歉，找不到页面",
+    "linkBroken": "您请求的链接已损坏或页面已被删除"
+  },
+  "subscribeModal": {
+    "heading": "您想了解更多有关最新旅游趋势的信息吗？",
+    "subHeading": "订阅我们的时事通讯并保持更新"
+  }
+}

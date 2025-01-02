@@ -1,0 +1,13 @@
+# Block all crawlers for /accounts
+User-agent: *
+Disallow: /
+
+Sitemap: https://luxafar.com/sitemap.xml
+Sitemap: https://luxafar.com/sitemap/en.xml
+Sitemap: https://luxafar.com/sitemap/fr.xml
+Sitemap: https://luxafar.com/sitemap/ru.xml
+Sitemap: https://luxafar.com/sitemap/zh.xml
+Sitemap: https://luxafar.com/sitemap/it.xml
+Sitemap: https://luxafar.com/sitemap/es.xml
+
+# Allow all crawlers

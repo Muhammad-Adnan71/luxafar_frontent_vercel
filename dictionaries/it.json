@@ -1,0 +1,277 @@
+{
+  "navigation": {
+    "bespokeHoliday": "Vacanze su misura",
+    "destination": "Destinazioni",
+    "tours": "Tours",
+    "holidayTypes": "Tipi di vacanza",
+    "inspirations": "Ispirazioni",
+    "shop": "Negozio",
+    "contact": "Contatto",
+    "about": "Su di noi",
+    "privacyPolicy": "Informativa sulla privacy",
+    "cookiePolicy": "Politica sui cookie",
+    "termsAndConditions": "Termini e condizioni",
+    "becomePartner": "Diventa un partner"
+  },
+  "tooltip": {
+    "comingSoon": "Prossimamente"
+  },
+  "placeholder": {
+    "name": "Nome",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "yourName": "Il tuo nome",
+    "email": "Indirizzo e-mail",
+    "noOfTravelers": "Numero di viaggiatori",
+    "selectTravelingDates": "Seleziona le date di viaggio",
+    "contactEmail": "Email di contatto",
+    "phone": "Numero di telefono",
+    "contactTelePhone": "Numero di telefono di contatto",
+    "subject": "Oggetto",
+    "message": "Messaggio",
+    "code": "Codice",
+    "jobTitle": "Titolo del lavoro",
+    "destination": "Dove vorresti andare?",
+    "tripLength": "Durata del viaggio (giorni)",
+    "companyName": "Nome della tua azienda/prodotto",
+    "productService": "Qual è il tuo prodotto o servizio",
+    "websiteAddress": "Indirizzo del sito Web (se applicabile)",
+    "otherCountry": "Specifica un altro Paese",
+    "somewhereElse": "Da qualche altra parte",
+    "whenIsTheHoliday": "Quando sono le vacanze?",
+    "whereDidYouHearAboutUs": "Dove hai sentito parlare di noi?",
+    "socialMedia": "Mezzi sociali",
+    "google": "Google",
+    "emailMarketing": "Marketing via email",
+    "clientReferral": "Riferimento del cliente",
+    "other": "Altra",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "linkedin": "Linkedin",
+    "clientName": "nome del cliente"
+  },
+  "breadCrumb": {
+    "home": "casa",
+    "blogs": "blog",
+    "contactUs": "Contattaci",
+    "about": "Su di noi",
+    "becomeAPartner": "Diventa un partner",
+    "cookiePolicy": "Politica sui cookie",
+    "privacyPolicy": "Informativa sulla privacy",
+    "termsAndConditions": "Termini e condizioni",
+    "tours": "Tours",
+    "bespokeHoliday": "Vacanze su misura",
+    "holidayType": "Tipo di vacanza"
+  },
+  "button": {
+    "nextPage": "Pagina successiva",
+    "prevPage": "Pagina precedente",
+    "send": "Inviare",
+    "submit": "Invia",
+    "clearAll": "CANCELLA tutto",
+    "subscribe": "Abbonati",
+    "getBespokePlan": "OTTIENI PIANI SU MISURA",
+    "learnMore": "SCOPRI DI PIÙ",
+    "readMore": "LEGGI DI PIÙ",
+    "viewAllPlaces": "vedi tutti i luoghi",
+    "collapseAll": "COMPRIMI TUTTO",
+    "expandAll": "ESPANDI TUTTO",
+    "browseAllTours": "Sfoglia tutti i tour",
+    "browseAllInspiration": "Sfoglia tutte le Inspirazioni",
+    "seeAllInspiration": "Vedi tutte le Inspirazioni",
+    "seeAllAttractions": "Vedi tutte le attrazioni",
+    "viewTour": "Visualizza il tour",
+    "seeFeaturedTour": "Vedi il tour in primo piano",
+    "reserveTour": "Prenota un tour",
+    "reserveThisTour": "Prenota questo tour",
+    "preferCustomTour": "Preferisci un tour personalizzato",
+    "gallery": "Galleria",
+    "proceedToNext": "Passa a Avanti",
+    "viewMore": "Visualizza altro"
+  },
+  "errors": {
+    "nameRequired": "Il nome è obbligatorio",
+    "firstNameRequired": "Il nome è obbligatorio",
+    "lastNameRequired": "Il cognome è obbligatorio",
+    "emailRequired": "L'email è obbligatoria",
+    "emailInvalid": "L'email non è valida",
+    "phoneRequired": "Il numero di telefono è obbligatorio",
+    "messageRequired": "Il messaggio è obbligatorio",
+    "subjectRequired": "L'oggetto è obbligatorio",
+    "noOfTravelersRequired": "È richiesto il numero di viaggiatori",
+    "dateRequired": "La data del modulo è obbligatoria",
+    "fromDateRequired": "La data di inizio del viaggio è obbligatoria",
+    "toDateRequired": "La data di fine del viaggio è obbligatoria",
+    "companyNameRequired": "Il nome dell'azienda/prodotto è obbligatorio",
+    "serviceRequired": "Servizio/prodotto richiesto",
+    "jobTitleRequired": "Il titolo del lavoro è obbligatorio",
+    "relevantDepartmentRequired": "È richiesto il dipartimento competente"
+  },
+  "radioButton": {
+    "marketing": "Marketing",
+    "hr": "RISORSE UMANE",
+    "it": "ESSO",
+    "finance": "Finanza",
+    "procurement": "Approvvigionamento",
+    "travelProduct": "Prodotto da viaggio",
+    "yes": "sì",
+    "no": "No"
+  },
+  "dropdown": {
+    "label": {
+      "destination": "Seleziona per destinazione",
+      "holidayType": "Seleziona per tipo di vacanza"
+    },
+    "placeholder": {
+      "destination": "Clicca qui per selezionare la destinazione",
+      "holidayType": "Clicca qui per selezionare il tipo di vacanza"
+    }
+  },
+  "social": {
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram"
+  },
+  "footer": {
+    "email": "E-mail",
+    "whatsAppNo": "WhatsApp No",
+    "blogs": "Blog",
+    "links": "Collegamenti",
+    "subscribe": "Abbonati",
+    "copyrights": "LUXAFAR. Realizzato da"
+  },
+  "contactDrawer": {
+    "contactHeading": "Pronto a <br /> Scopri un mondo di <br /> Lusso inimmaginabile"
+  },
+  "bespokePage": {
+    "letsPlan": "pianifichiamo",
+    "your": "Il tuo",
+    "journey": "Viaggio",
+    "heading": "pianifichiamo <br /> Il tuo <strong class='inline text-secondary-color'>Viaggio</strong>",
+    "paragraph": "Parti per un viaggio straordinario con i nostri pacchetti Exclusive Creation. Ogni dettaglio, ogni desiderio, meticolosamente intessuto in una vacanza su misura. Questa è la tua avventura, la tua strada, una testimonianza della tua individualità. Benvenuto in un mondo creato esclusivamente per te."
+  },
+  "holidayTypePage": {
+    "chooseYour": "Scegli il tuo",
+    "HolidayType": "Tipo di vacanza",
+    "bannerHeading": "Tipi di vacanza",
+    "sectionTitle": "Scegli il tuo <strong class='block text-secondary-color !font-heading'>Tipo di vacanza</strong> "
+  },
+  "sectionHeadings": {
+    "browseOur": "Sfoglia i nostri",
+    "tours": "Tours",
+    "recommendedTours": " Consigliato <strong class='inline text-secondary-color !font-heading '>&nbsp; Tours </strong> ",
+    "blogs": "Blog",
+    "becomePartner": "Lo faresti <br /> Mi piace <strong class='inline text-secondary-color'>Lavorare</strong> <br /> <strong class='inline-block text-secondary-color'>con noi?</strong>",
+    "testimonialClientLove": "Cliente <strong class='block -mt-2 text-secondary-color font-heading text-right max-lg:inline-block max-lg:ml-3 capitalize '> Amore </strong>",
+    "youMightAlsoLike": "Potresti <br /> Inoltre <span class='inline-block' data-scroll data-scroll-speed='.5' data-scroll-direction='vertical' > <strong class='text-secondary-color inline-block font-[700]'> Mi piace </strong> </span>",
+    "articlesForYourGuidance": "<span data-scroll data-scroll-speed='.5' data-scroll-direction='vertical' class='inline-block' > <strong class='text-secondary-color font-[700] inline-block'> articoli </strong> </span> Per il tuo <br class='max-sm:hidden' /> Linee guida",
+    "recommendedPlaces": "Consigliato <strong class='block text-secondary-color !font-heading md:ml-2'> Luoghi </strong>"
+  },
+  "inspirationPage": {
+    "featured": "In primo piano",
+    "clearAll": "CANCELLA tutto",
+    "mins": "Minuti"
+  },
+  "becomePartnerPage": {
+    "paragraph": "Se hai un prodotto o un servizio che ritieni possa interessarci, ci piacerebbe sentirti. Compila il modulo di contatto sottostante, in modo che possiamo indirizzare la tua richiesta al team competente. <br /><br />Se l'opportunità è interessante, un membro del team ti contatterà. Ti chiediamo gentilmente di aspettare di avere nostre notizie.",
+    "formHeading": "Per cosa ci stai contattando?",
+    "radioButtonHeading": "A quale reparto è più pertinente il tuo prodotto/servizio?",
+    "contactDetailHeading": "I tuoi dati di contatto"
+  },
+  "tabsContents": {
+    "travelGuide": "guida di viaggio",
+    "tours": "tour",
+    "placesToVisit": "luoghi da visitare",
+    "thingsTodDo": "cose da fare",
+    "seasonsToVisit": "stagioni da visitare",
+    "overview": "resoconto",
+    "dayToDayItinerary": "itinerario giorno per giorno",
+    "datesAndPrices": "date e prezzi",
+    "whatToExpect": "cosa aspettarsi"
+  },
+  "planContactBanner": {
+    "heading": "Pronto a <strong class='inline-block max-sm:inline text-secondary-color !font-heading sm:ml-2'> Piano <br class='sm:hidden' /> Il tuo tour? </strong>",
+    "heading2": "Voglio <strong class='inline-block max-sm:inline text-secondary-color !font-heading sm:ml-2'> Piano <br class='sm:hidden' /> Il tuo tour? </strong>",
+    "description": "Qualunque cosa tu voglia dal tuo tour, il nostro team di esperti designer di viaggi è pronto ad aiutarti.",
+    "description1": "Tutto quello che vuoi dal tuo",
+    "description2": "Tour, il nostro team di esperti designer di viaggi è pronto ad aiutarti."
+  },
+
+  "destinationPage": {
+    "allAbout": "Tutto su",
+    "contactHeading": "Contatta Destination Expert",
+    "receiveUpdates": "Vuoi ricevere da noi gli ultimi aggiornamenti sui tour?",
+    "browseOur": "Sfoglia i nostri",
+    "toursTo": "Visite guidate a",
+    "browseAttraction": " Sfoglia <strong class='text-secondary-color !font-heading sm:ml-3'> Attrazioni </strong> <span class='block'> Per il tuo <strong class='text-secondary-color !font-heading sm:ml-3'> itinerario </strong> </span> ",
+    "articlesRelated": "Articoli correlati",
+    "articlesRelatedTo": "A",
+    "gallery": "Galleria",
+    "daysPlan": "Piano dei giorni",
+    "getInspired": "ottenere <strong class='text-secondary-color !font-heading is-inview '> Ispirato </strong>",
+    "placesWhereYouCanGo": " <strong class='inline-block text-secondary-color !font-heading '> Luoghi </strong> <span class='sm:ml-3'> Dove </span> <span class='block'> puoi andare</span> ",
+    "getTripIdeas": " ottenere &nbsp;<strong class='inline-block text-secondary-color !font-heading sm:ml-3'>Idee di viaggio</strong> ",
+    "ultimateGuideForThingsToDo": "<strong class='block text-secondary-color !font-heading is-inview '> guida definitiva </strong> per cose da fare",
+    "featuredTour": "Tour in primo piano",
+    "seasonsToVisitHeading": "<strong class='block text-secondary-color !font-heading is-inview'>Stagioni&nbsp;</strong>da visitare",
+    "period": "PERIODO",
+    "highAndLows": "ALTI E BASSI",
+    "in": "nel",
+    "eventsAndOccasions": "Eventi e occasioni",
+    "overviewAbout": "Panoramica <br /> Informazioni su",
+    "pricingFrom": "Da",
+    "pricingPerPerson": "A persona",
+    "airFareIncluded": "*Tariffa aerea inclusa",
+    "airFareNotIncluded": "*Tariffa aerea non inclusa",
+    "pricingYourOwnAdventure": "Questo viaggio può <br class='sm:hidden' /> Essere <br class='max-sm:hidden' /> Il tuo <strong class='sm:inline-block text-secondary-color'> Avventura propria </strong>",
+    "bookingFrom": "MODULO DI PRENOTAZIONE",
+    "highlights": "In evidenza",
+    "itineraryAndAccommodations": "<strong class='text-secondary-color font-[700]'> itinerario </strong> &<br /> Alloggi",
+    "itineraryDay": "Giorno",
+    "itineraryAccommodation": "Alloggi",
+    "datesAndPrices": " Date e prezzi",
+    "tripLength": "Durata del viaggio",
+    "datesAndPricesDays": "Giorni",
+    "datesAndPricesFrom": "Da",
+    "tours": "tour",
+    "tripCost": "Costo del viaggio",
+    "makeItPrivate": "Fatelo <strong class=' text-secondary-color'>privato</strong>",
+    "makeItPrivateGuests": "Ospiti",
+    "makeItPrivatePerPerson": "Per persona",
+    "whatsIncluded": "Che cosa è <strong class=' text-secondary-color'>Incluso</strong>",
+    "whatToExpectHeading": "Cosa fare <strong class='text-secondary-color inline-block sm:ml-3'> Aspettatevi </strong>",
+    "physicalActivity": "<strong class='text-secondary-color inline-block '> Fisico </strong> Attività",
+    "meetingPoint": "<strong class='text-secondary-color inline-block '> riunione </strong> punto",
+    "departurePoint": "<strong class='text-secondary-color inline-block '> Partenza </strong> punto",
+    "travelingToAndFrom": "<strong class='text-secondary-color inline-block '> Viaggiando </strong> Da e per",
+    "weather": "Meteo",
+    "whenToGo": "Quando andare",
+    "cuisine": "Cucina",
+    "ideasForYourTrip": "Idee per <br class='sm:hidden' /> Your <br class='max-sm:hidden' /> Viaggio a <br class='sm:hidden' />"
+  },
+  "toursPage": {
+    "featuredHeading": "In primo piano",
+    "featuredSliderDay": "Giorni",
+    "featuredSliderNight": "Notti",
+    "planYourJourney": "Pianifichiamo <br class='max-sm:hidden' /> Il tuo <br class='sm:hidden' /> <strong class='inline text-secondary-color'>Viaggio</strong>"
+  },
+  "becomeAPartnerPage": {
+    "heading": "Lo faresti <br /> Mi piace <strong class='inline text-secondary-color'>Lavorare</strong> <br /> <strong class='inline text-secondary-color'>con noi?</strong>",
+    "paragraph": "Se hai un prodotto o un servizio che ritieni possa interessarci, ci piacerebbe sentirti. Compila il modulo di contatto sottostante, in modo che possiamo indirizzare la tua richiesta al team competente. <br /><br />Se l'opportunità è interessante, un membro del team ti contatterà. Ti chiediamo gentilmente di aspettare di avere nostre notizie.",
+    "contactingAbout": "Per cosa ci stai contattando?",
+    "radioButtonHeading": "A quale reparto è più pertinente il tuo prodotto/servizio?",
+    "contactDetailHeading": "I tuoi dati di contatto"
+  },
+  "successModal": {
+    "heading": "Grazie",
+    "message": "Il nostro specialista di viaggi ti contatterà a breve."
+  },
+  "notFound": {
+    "pageNotFound": "Siamo spiacenti, pagina non trovata",
+    "linkBroken": "il collegamento richiesto è interrotto o la pagina è stata rimossa"
+  },
+  "subscribeModal": {
+    "heading": "Desideri saperne di più sulle ultime tendenze di viaggio?",
+    "subHeading": "Iscriviti alla nostra newsletter e rimani aggiornato"
+  }
+}

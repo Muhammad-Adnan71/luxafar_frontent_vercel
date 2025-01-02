@@ -1,0 +1,277 @@
+{
+  "navigation": {
+    "bespokeHoliday": "Отдых на заказ",
+    "destination": "Дестинации",
+    "tours": "Туры",
+    "holidayTypes": "Виды отдыха",
+    "inspirations": "Источники вдохновения",
+    "shop": "Магазин",
+    "contact": "Связаться",
+    "about": "О нас",
+    "privacyPolicy": "Политика конфиденциальности",
+    "cookiePolicy": "Политика использования файлов cookie",
+    "termsAndConditions": "Положения и условия",
+    "becomePartner": "Станьте партнером"
+  },
+  "tooltip": {
+    "comingSoon": "Скоро"
+  },
+  "placeholder": {
+    "name": "Имя",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "yourName": "Ваше имя",
+    "email": "Адрес электронной почты",
+    "noOfTravelers": "Количество путешественников",
+    "selectTravelingDates": "Выберите даты путешествия",
+    "contactEmail": "Контактный адрес электронной почты",
+    "phone": "Номер телефона",
+    "contactTelePhone": "Номер контактного телефона",
+    "subject": "Предмет",
+    "message": "Послание",
+    "code": "Код",
+    "jobTitle": "Название вакансии",
+    "destination": "Куда бы вы хотели пойти?",
+    "tripLength": "Продолжительность поездки (дни)",
+    "companyName": "Ваша компания/название продукта",
+    "productService": "Какой у вас продукт или услуга",
+    "websiteAddress": "Адрес веб-сайта (если применимо)",
+    "otherCountry": "Укажите другую страну",
+    "somewhereElse": "В другом месте",
+    "whenIsTheHoliday": "Когда праздник?",
+    "whereDidYouHearAboutUs": "Где вы услышали о нас?",
+    "socialMedia": "Социальные медиа",
+    "google": "Google",
+    "emailMarketing": "Рекламная рассылка",
+    "clientReferral": "Направление клиента",
+    "other": "Другой",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "linkedin": "Linkedin",
+    "clientName": "имя клиента"
+  },
+  "breadCrumb": {
+    "home": "главная",
+    "blogs": "блоги",
+    "contactUs": "Свяжитесь с нами",
+    "about": "О нас",
+    "becomeAPartner": "Станьте партнером",
+    "cookiePolicy": "Политика использования файлов cookie",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsAndConditions": "Положения и условия",
+    "tours": "Туры",
+    "bespokeHoliday": "Отдых на заказ",
+    "holidayType": "Тип отдыха"
+  },
+  "button": {
+    "nextPage": "Следующая страница",
+    "prevPage": "Предыдущая страница",
+    "send": "Отправить",
+    "submit": "Отправить",
+    "clearAll": "ОЧИСТИТЬ ВСЕ",
+    "subscribe": "Подписывайтесь",
+    "getBespokePlan": "ПОЛУЧИТЕ ИНДИВИДУАЛЬНЫЕ ПЛАНЫ",
+    "learnMore": "УЗНАТЬ БОЛЬШЕ",
+    "readMore": "ЧИТАТЬ БОЛЬШЕ",
+    "viewAllPlaces": "посмотреть все места",
+    "collapseAll": "СВЕРНУТЬ ВСЕ",
+    "expandAll": "РАЗВЕРНУТЬ ВСЕ",
+    "browseAllTours": "Смотреть все туры",
+    "browseAllInspiration": "Просмотрите все идеи",
+    "seeAllInspiration": "См. все идеи",
+    "seeAllAttractions": "Смотреть все достопримечательности",
+    "viewTour": "Посмотреть тур",
+    "seeFeaturedTour": "См. рекомендуемый тур",
+    "reserveTour": "Забронировать тур",
+    "reserveThisTour": "Забронируйте этот тур",
+    "preferCustomTour": "Предпочитаю индивидуальный тур",
+    "gallery": "Галерея",
+    "proceedToNext": "Перейти к следующему",
+    "viewMore": "Показать больше"
+  },
+  "errors": {
+    "nameRequired": "Имя обязательно",
+    "firstNameRequired": "Необходимо указать имя",
+    "lastNameRequired": "Фамилия обязательна",
+    "emailRequired": "Требуется адрес электронной почты",
+    "emailInvalid": "Неверный адрес электронной почты",
+    "phoneRequired": "Требуется номер телефона",
+    "messageRequired": "Сообщение обязательно",
+    "subjectRequired": "Тема обязательна",
+    "noOfTravelersRequired": "Требуется количество путешественников",
+    "dateRequired": "Дата формы обязательна",
+    "fromDateRequired": "Дата начала путешествия обязательна",
+    "toDateRequired": "Дата окончания поездки обязательна",
+    "companyNameRequired": "Необходимо указать название компании/продукта",
+    "serviceRequired": "Требуемая услуга/продукт",
+    "jobTitleRequired": "Должность обязательна",
+    "relevantDepartmentRequired": "Требуется соответствующий отдел"
+  },
+  "radioButton": {
+    "marketing": "Маркетинг",
+    "hr": "ОТДЕЛ КАДРОВ",
+    "it": "ЭТО",
+    "finance": "Финансы",
+    "procurement": "Закупки",
+    "travelProduct": "Туристический продукт",
+    "yes": "Да",
+    "no": "Нет"
+  },
+  "dropdown": {
+    "label": {
+      "destination": "Выберите по месту назначения",
+      "holidayType": "Выберите по типу отдыха"
+    },
+    "placeholder": {
+      "destination": "Нажмите здесь, чтобы выбрать пункт назначения",
+      "holidayType": "Нажмите здесь, чтобы выбрать тип отдыха"
+    }
+  },
+  "social": {
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram"
+  },
+  "footer": {
+    "email": "Электронная почта",
+    "whatsAppNo": "WhatsApp Нет",
+    "blogs": "Блоги",
+    "links": "Ссылки",
+    "subscribe": "Подписывайтесь",
+    "copyrights": "ЛЮКСАФАР. Работает на"
+  },
+  "contactDrawer": {
+    "contactHeading": "Готовы к <br /> Откройте для себя мир <br /> Невообразимая роскошь"
+  },
+  "bespokePage": {
+    "letsPlan": "давайте спланируем",
+    "your": "Ваш",
+    "journey": "Путешествие",
+    "heading": "Путешествие <br /> Ваш <strong class='inline text-secondary-color'>Путешествие</strong>",
+    "paragraph": "Отправляйтесь в необычное путешествие с нашими пакетами Exclusive Creation. Каждая деталь, каждое пожелание — все это тщательно вплетено в индивидуальный отдых. Это ваше приключение, ваш путь, свидетельство вашей индивидуальности. Добро пожаловать в мир, созданный специально для вас."
+  },
+  "holidayTypePage": {
+    "chooseYour": "Выберите свой",
+    "HolidayType": "Тип отдыха",
+    "bannerHeading": "Виды отдыха",
+    "sectionTitle": "Выберите свой <strong class='block text-secondary-color !font-heading'>Тип отдыха</strong> "
+  },
+  "sectionHeadings": {
+    "browseOur": "Просмотрите наши",
+    "tours": "Туры",
+    "recommendedTours": " Рекомендовано &nbsp;<strong class='inline text-secondary-color !font-heading '> Туры </strong> ",
+    "blogs": "Блоги",
+    "becomePartner": "Не могли бы вы <br /> Мне нравится <strong class='inline text-secondary-color'>Работа</strong> <br /> <strong class='inline-block text-secondary-color'>с нами?</strong>",
+    "testimonialClientLove": "Клиент <strong class='block -mt-2 text-secondary-color font-heading text-right max-lg:inline-block max-lg:ml-3 capitalize '> Любовь </strong>",
+    "youMightAlsoLike": "Возможно, вы <br /> Также <span class='inline-block' data-scroll data-scroll-speed='.5' data-scroll-direction='vertical' > <strong class='text-secondary-color inline-block font-[700]'> Мне нравится </strong> </span>",
+    "articlesForYourGuidance": "<span data-scroll data-scroll-speed='.5' data-scroll-direction='vertical' class='inline-block' > <strong class='text-secondary-color font-[700] inline-block'> статьи </strong> </span> Для вашего <br class='max-sm:hidden' /> Руководство",
+    "recommendedPlaces": "Рекомендовано <strong class='block text-secondary-color !font-heading md:ml-2'> Места </strong>"
+  },
+  "inspirationPage": {
+    "featured": "Избранное",
+    "clearAll": "ОЧИСТИТЬ ВСЕ",
+    "mins": "Минск"
+  },
+  "becomePartnerPage": {
+    "paragraph": "Если у вас есть продукт или услуга, которые, по вашему мнению, нас заинтересуют, мы будем рады услышать ваше мнение. Заполните контактную форму ниже, чтобы мы могли направить ваш запрос соответствующей команде. <br /><br />Если представится такая возможность, член команды свяжется с вами. Мы просим вас дождаться ответа от нас.",
+    "formHeading": "По каким вопросам вы к нам обращаетесь?",
+    "radioButtonHeading": "Для какого отдела ваш продукт/услуга наиболее актуальна?",
+    "contactDetailHeading": "Ваши контактные данные"
+  },
+  "tabsContents": {
+    "travelGuide": "путеводитель",
+    "tours": "туры",
+    "placesToVisit": "места для посещения",
+    "thingsTodDo": "чем заняться",
+    "seasonsToVisit": "сезоны для посещения",
+    "overview": "обзор",
+    "dayToDayItinerary": "дневной маршрут",
+    "datesAndPrices": "даты и цены",
+    "whatToExpect": "чего ожидать"
+  },
+  "planContactBanner": {
+    "heading": "Готовы к <strong class='inline-block max-sm:inline text-secondary-color !font-heading sm:ml-2'>&nbsp;План <br class='sm:hidden' /> Ваш тур? </strong>",
+    "heading2": "Хочу <strong class='inline-block max-sm:inline text-secondary-color !font-heading sm:ml-2'> План <br class='sm:hidden' /> Ваш тур? </strong>",
+    "description": "Чего бы вы ни хотели от своего тура, наша команда опытных дизайнеров путешествий готова помочь.",
+    "description1": "Все, что вы хотите от своего",
+    "description2": "Тур. Наша команда опытных дизайнеров путешествий готова помочь."
+  },
+
+  "destinationPage": {
+    "allAbout": "Все о",
+    "contactHeading": "Свяжитесь с экспертом по направлениям",
+    "receiveUpdates": "Хотите получать от нас последние новости о туре?",
+    "browseOur": "Просмотрите наши",
+    "toursTo": "Туры в",
+    "browseAttraction": " Просматривать <strong class='text-secondary-color !font-heading ml-3'> Аттракционы </strong> <span class='block'> Для вашего <strong class='text-secondary-color !font-heading ml-3'> Маршрут </strong> </span> ",
+    "articlesRelated": "Статьи по теме",
+    "articlesRelatedTo": "Ко",
+    "gallery": "Галерея",
+    "daysPlan": "План дней",
+    "getInspired": "получить&nbsp; <strong class='text-secondary-color !font-heading is-inview '> Вдохно </strong>",
+    "placesWhereYouCanGo": " <strong class='inline-block text-secondary-color !font-heading '> Места </strong> <span class='ml-3'>Где</span> <span class='block'> вы можете пойти</span> ",
+    "getTripIdeas": " Получите &nbsp;<strong class='inline-block text-secondary-color !font-heading'>Идеи путешествий </strong> ",
+    "ultimateGuideForThingsToDo": "<strong class='block text-secondary-color !font-heading is-inview '> окончательный путеводитель </strong> для занятий",
+    "featuredTour": "Рекомендуемый тур",
+    "seasonsToVisitHeading": "<strong class='block text-secondary-color !font-heading is-inview'>сезон &nbsp</strong>для посещения",
+    "period": "ПЕРИОД",
+    "highAndLows": "МАКСИМУМЫ И МИНИМУМЫ",
+    "in": "в",
+    "eventsAndOccasions": "События и события",
+    "overviewAbout": "Обзор <br /> О нас",
+    "pricingFrom": "От",
+    "pricingPerPerson": "На человека",
+    "airFareIncluded": "*Авиабилет включен",
+    "airFareNotIncluded": "*Авиабилет не включен",
+    "pricingYourOwnAdventure": "Эта поездка может <br class='sm:hidden' /> Быть <br class='max-sm:hidden' /> Ваш <strong class='sm:inline-block text-secondary-color'> Собственное приключение </strong>",
+    "bookingFrom": "ФОРМА БРОНИРОВАНИЯ",
+    "highlights": "Основные моменты",
+    "itineraryAndAccommodations": "<strong class='text-secondary-color font-[700]'> Маршрут </strong> &<br /> Размещение",
+    "itineraryDay": "День",
+    "itineraryAccommodation": "Размещение",
+    "datesAndPrices": " Даты и цены",
+    "tripLength": "Продолжительность поездки",
+    "datesAndPricesDays": "Дни",
+    "datesAndPricesFrom": "От",
+    "tours": "туры",
+    "tripCost": "Стоимость поездки",
+    "makeItPrivate": "Сделай это <strong class=' text-secondary-color'>частного</strong>",
+    "makeItPrivateGuests": "Гости",
+    "makeItPrivatePerPerson": "На человека",
+    "whatsIncluded": "Что <strong class=' text-secondary-color'>Включено</strong>",
+    "whatToExpectHeading": "Что делать <strong class='text-secondary-color inline-block ml-3'> Ожидайте </strong>",
+    "physicalActivity": "<strong class='text-secondary-color inline-block '> Физический </strong> Активность",
+    "meetingPoint": "<strong class='text-secondary-color inline-block '> заседание </strong> пункт",
+    "departurePoint": "<strong class='text-secondary-color inline-block '> Отъезд </strong> пункт",
+    "travelingToAndFrom": "<strong class='text-secondary-color inline-block '> Путешествия </strong> Куда и обратно",
+    "weather": "Погода",
+    "whenToGo": "Когда ехать",
+    "cuisine": "Кухня",
+    "ideasForYourTrip": "Идеи для <br class='sm:hidden' /> Ваш <br class='max-sm:hidden' /> Поездка в <br class='sm:hidden' />"
+  },
+  "toursPage": {
+    "featuredHeading": "Избранное",
+    "featuredSliderDay": "ДниНочи",
+    "featuredSliderNight": "Дни",
+    "planYourJourney": "Давайте&rsquo;s План <br class='max-sm:hidden' /> Ваш <br class='sm:hidden' /> <strong class='inline text-secondary-color'>Путешествие</strong>"
+  },
+  "becomeAPartnerPage": {
+    "heading": "Не могли бы вы <br /> Мне нравится <strong class='inline text-secondary-color'>Работа</strong> <br /> <strong class='inline text-secondary-color'>с нами?</strong>",
+    "paragraph": "Если у вас есть продукт или услуга, которые, по вашему мнению, нас заинтересуют, мы будем рады услышать ваше мнение. Заполните контактную форму ниже, чтобы мы могли направить ваш запрос соответствующей команде. <br /><br />Если представится такая возможность, член команды свяжется с вами. Мы просим вас дождаться ответа от нас.",
+    "contactingAbout": "По каким вопросам вы обращаетесь к нам?",
+    "radioButtonHeading": "Для какого отдела ваш продукт/услуга наиболее актуальна?",
+    "contactDetailHeading": "Ваши контактные данные"
+  },
+  "successModal": {
+    "heading": "Спасибо",
+    "message": "Наш специалист по путешествиям свяжется с вами в ближайшее время."
+  },
+  "notFound": {
+    "pageNotFound": "Извините, страница не найдена",
+    "linkBroken": "запрошенная вами ссылка не работает или страница удалена"
+  },
+  "subscribeModal": {
+    "heading": "Хотели бы вы услышать больше о последних тенденциях в сфере путешествий?",
+    "subHeading": "Подпишитесь на нашу рассылку и будьте в курсе"
+  }
+}

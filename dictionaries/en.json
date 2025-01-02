@@ -1,0 +1,277 @@
+{
+  "navigation": {
+    "bespokeHoliday": "Bespoke Holidays",
+    "destination": "Destinations",
+    "tours": "Tours",
+    "holidayTypes": "Holiday Types",
+    "inspirations": "Inspirations",
+    "shop": "Shop",
+    "contact": "Contact",
+    "about": "About Us",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "termsAndConditions": "Terms & Conditions",
+    "becomePartner": "Become A Partner"
+  },
+  "tooltip": {
+    "comingSoon": "Coming Soon"
+  },
+  "placeholder": {
+    "name": "Name",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "yourName": "Your Name",
+    "email": "Email Address",
+    "noOfTravelers": "No Of Travelers",
+    "selectTravelingDates": "Select Traveling Dates",
+    "contactEmail": "Contact Email",
+    "phone": "Phone Number",
+    "contactTelePhone": "Contact Telephone Number",
+    "subject": "Subject",
+    "message": "Message",
+    "code": "Code",
+    "jobTitle": "Job Title",
+    "destination": "Where would you like to go?",
+    "tripLength": "Trip Length (Days)",
+    "companyName": "Your Company / Product Name",
+    "productService": "What is Your Product or Service",
+    "websiteAddress": "Website Address (if applicable)",
+    "otherCountry": "Please Specify Other Country",
+    "somewhereElse": "Somewhere Else",
+    "whenIsTheHoliday": "When is the holiday?",
+    "whereDidYouHearAboutUs": "Where did you hear about us?",
+    "socialMedia": "Social Media",
+    "google": "Google",
+    "emailMarketing": "Email Marketing",
+    "clientReferral": "Client Referral",
+    "other": "Other",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "linkedin": "Linkedin",
+    "clientName": "Client Name"
+  },
+  "breadCrumb": {
+    "home": "home",
+    "blogs": "blogs",
+    "contactUs": "Contact Us",
+    "about": "About Us",
+    "becomeAPartner": "Become a partner",
+    "cookiePolicy": "Cookie Policy",
+    "privacyPolicy": "Privacy Policy",
+    "termsAndConditions": "Terms & Conditions",
+    "tours": "Tours",
+    "bespokeHoliday": "Bespoke Holidays",
+    "holidayType": "Holiday Type"
+  },
+  "button": {
+    "nextPage": "Next Page",
+    "prevPage": "Previous Page",
+    "send": "Send",
+    "submit": "Submit",
+    "clearAll": "CLEAR All",
+    "subscribe": "Subscribe",
+    "getBespokePlan": "GET BESPOKE PLANS",
+    "learnMore": "LEARN MORE",
+    "readMore": "READ MORE",
+    "viewAllPlaces": "view all places",
+    "collapseAll": "COLLAPSE ALL",
+    "expandAll": "EXPAND ALL",
+    "browseAllTours": "Browse All Tours",
+    "browseAllInspiration": "Browse All Inspirations",
+    "seeAllInspiration": "See All Inspirations",
+    "seeAllAttractions": "See All Attractions",
+    "viewTour": "View Tour",
+    "seeFeaturedTour": "See Featured Tour",
+    "reserveTour": "Reserve A Tour",
+    "reserveThisTour": "Reserve This Tour",
+    "preferCustomTour": "Prefer A Custom Tour",
+    "gallery": "Gallery",
+    "proceedToNext": "Proceed to Next",
+    "viewMore": "View More"
+  },
+  "errors": {
+    "nameRequired": "Name is Required",
+    "firstNameRequired": "First Name is Required",
+    "lastNameRequired": "Last Name is Required",
+    "emailRequired": "Email is Required",
+    "emailInvalid": "Email is Invalid",
+    "phoneRequired": "Phone Number is Required",
+    "messageRequired": "Message is Required",
+    "subjectRequired": "Subject is Required",
+    "noOfTravelersRequired": "Number Of Travelers is Required",
+    "dateRequired": "Form Date is Required",
+    "fromDateRequired": "Travel start date is Required",
+    "toDateRequired": "Travel end date is Required",
+    "companyNameRequired": "Company/Product Name is Required",
+    "serviceRequired": "Service/Product Required",
+    "jobTitleRequired": "Job Title is required",
+    "relevantDepartmentRequired": "Relevant Department is required"
+  },
+  "radioButton": {
+    "marketing": "Marketing",
+    "hr": "HR",
+    "it": "IT",
+    "finance": "Finance",
+    "procurement": "Procurement",
+    "travelProduct": "Travel Product",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "dropdown": {
+    "label": {
+      "destination": "Select By Destination",
+      "holidayType": "Select By Holiday Type"
+    },
+    "placeholder": {
+      "destination": "Click Here To Select Destination",
+      "holidayType": "Click Here To Select Holiday Type"
+    }
+  },
+  "social": {
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram"
+  },
+  "footer": {
+    "email": "Email",
+    "whatsAppNo": "WhatsApp No",
+    "blogs": "Blogs",
+    "links": "Links",
+    "subscribe": "Subscribe",
+    "copyrights": "LUXAFAR. Powered By"
+  },
+  "contactDrawer": {
+    "contactHeading": "Ready To <br /> Discover A World of <br /> Unimaginable Luxury"
+  },
+  "bespokePage": {
+    "letsPlan": "let's Plan",
+    "your": "Your",
+    "journey": "Journey",
+    "heading": "Lets Plan <br /> Your <strong class='inline text-secondary-color'>Journey</strong>",
+    "paragraph": "Embark on an extraordinary voyage with our Exclusive Creation packages. Every detail, every wish, meticulously woven into a bespoke holiday. This is your adventure, your way, a testament to your individuality. Welcome to a world crafted exclusively for you."
+  },
+  "holidayTypePage": {
+    "chooseYour": "Choose Your",
+    "HolidayType": "Holiday Type",
+    "bannerHeading": "Holiday Types",
+    "sectionTitle": "Choose Your <strong class='block text-secondary-color !font-heading'>Holiday Type</strong> "
+  },
+  "sectionHeadings": {
+    "browseOur": "Browse Our",
+    "tours": "Tours",
+    "recommendedTours": " Recommended &nbsp;<strong class='inline text-secondary-color !font-heading '> Tours </strong> ",
+    "blogs": "Blogs",
+    "becomePartner": "Would You <br /> Like to <strong class='inline text-secondary-color'>Work</strong> <br /> <strong class='inline-block text-secondary-color'>with us?</strong>",
+    "testimonialClientLove": "Client <strong class='block -mt-2 text-secondary-color font-heading text-right max-lg:inline-block max-lg:ml-3 capitalize '> Love </strong>",
+    "youMightAlsoLike": "You Might <br /> Also <span class='inline-block' data-scroll data-scroll-speed='.5' data-scroll-direction='vertical' > <strong class='text-secondary-color inline-block font-[700]'> Like </strong> </span>",
+    "articlesForYourGuidance": "<span data-scroll data-scroll-speed='.5' data-scroll-direction='vertical' class='inline-block' > <strong class='text-secondary-color font-[700] inline-block'> Articles </strong> </span> For Your <br class='max-sm:hidden' /> Guidance",
+    "recommendedPlaces": "Recommended <strong class='block text-secondary-color !font-heading md:ml-2'> Places </strong>"
+  },
+  "inspirationPage": {
+    "featured": "Featured",
+    "clearAll": "CLEAR All",
+    "mins": "Mins"
+  },
+  "becomePartnerPage": {
+    "paragraph": "If you have a product or service you think we would be interested in, we would love to hear from you. Please complete the contact form below, so we can direct your enquiry to the relevant team. <br /> <br /> If the opportunity is of interest a member of the team will be in touch. We kindly ask that you wait to hear from us.",
+    "formHeading": "What are you contacting us about?",
+    "radioButtonHeading": "Which Department Is Your Product/Service Most Relevant To?",
+    "contactDetailHeading": "Your Contact Details"
+  },
+  "tabsContents": {
+    "travelGuide": "travel-guide",
+    "tours": "tours",
+    "placesToVisit": "places-to-visit",
+    "thingsTodDo": "things-to-do",
+    "seasonsToVisit": "seasons-to-visit",
+    "overview": "overview",
+    "dayToDayItinerary": "day to day itinerary",
+    "datesAndPrices": "dates & prices",
+    "whatToExpect": "what to expect"
+  },
+  "planContactBanner": {
+    "heading": "Ready To <strong class='inline-block max-sm:inline text-secondary-color !font-heading sm:ml-2'>&nbsp;Plan <br class='sm:hidden' /> Your Tour? </strong>",
+    "heading2": "Want To <strong class='inline-block max-sm:inline text-secondary-color !font-heading sm:ml-2'> Plan <br class='sm:hidden' /> Your Tour? </strong>",
+    "description": "Whatever you want from your Tour, Our team of expert travel designers are ready to help.",
+    "description1": "Whatever you want from your",
+    "description2": "Tour, Our team of expert travel designers are ready to help."
+  },
+
+  "destinationPage": {
+    "allAbout": "All About",
+    "contactHeading": "Contact Destination Expert",
+    "receiveUpdates": "Want to receive latest tour updates from us?",
+    "browseOur": "Browse Our",
+    "toursTo": "Tours To",
+    "browseAttraction": " Browse <strong class='text-secondary-color !font-heading ml-3'> Attractions </strong> <span class='block'> For Your <strong class='text-secondary-color !font-heading ml-3'> Itinerary </strong> </span> ",
+    "articlesRelated": "Articles Related",
+    "articlesRelatedTo": "To",
+    "gallery": "Gallery",
+    "daysPlan": "Days Plan",
+    "getInspired": "get&nbsp; <strong class='text-secondary-color !font-heading is-inview '> Inspired </strong>",
+    "placesWhereYouCanGo": " <strong class='inline-block text-secondary-color !font-heading '> Places </strong> <span class='ml-3'>Where</span> <span class='block'> you can go</span> ",
+    "getTripIdeas": " Get &nbsp;<strong class='inline-block text-secondary-color !font-heading'>Trip Ideas </strong> ",
+    "ultimateGuideForThingsToDo": "<strong class='block text-secondary-color !font-heading is-inview '> ultimate guide </strong> for things to do",
+    "featuredTour": "Featured Tour",
+    "seasonsToVisitHeading": "<strong class='block text-secondary-color !font-heading is-inview'>Seasons&nbsp</strong>to visits",
+    "period": "PERIOD",
+    "highAndLows": "HIGHS & LOWS",
+    "in": "in",
+    "eventsAndOccasions": "Events & Occasions",
+    "overviewAbout": "Overview <br /> About",
+    "pricingFrom": "From",
+    "pricingPerPerson": "Per person",
+    "airFareIncluded": "*Air Fare Included",
+    "airFareNotIncluded": "*Air Fare Not Included",
+    "pricingYourOwnAdventure": "This Trip Can <br class='sm:hidden' /> Be <br class='max-sm:hidden' /> Your <strong class='sm:inline-block text-secondary-color'> Own Adventure </strong>",
+    "bookingFrom": "BOOKING FORM",
+    "highlights": "Highlights",
+    "itineraryAndAccommodations": "<strong class='text-secondary-color font-[700]'> Itinerary </strong> &<br /> Accommodations",
+    "itineraryDay": "Day",
+    "itineraryAccommodation": "Accommodation",
+    "datesAndPrices": " Dates & Prices",
+    "tripLength": "Trip Length",
+    "datesAndPricesDays": "Days",
+    "datesAndPricesFrom": "From",
+    "tours": "tours",
+    "tripCost": "Trip Cost",
+    "makeItPrivate": "Make it <strong class=' text-secondary-color'>private</strong>",
+    "makeItPrivateGuests": "Guests",
+    "makeItPrivatePerPerson": "Per Person",
+    "whatsIncluded": "Whats <strong class=' text-secondary-color'>Included</strong>",
+    "whatToExpectHeading": "What To <strong class='text-secondary-color inline-block ml-3'> Expect </strong>",
+    "physicalActivity": "<strong class='text-secondary-color inline-block '> Physical </strong> Activity",
+    "meetingPoint": "<strong class='text-secondary-color inline-block '> meeting </strong> point",
+    "departurePoint": "<strong class='text-secondary-color inline-block '> Departure </strong> point",
+    "travelingToAndFrom": "<strong class='text-secondary-color inline-block '> Traveling </strong> To & From",
+    "weather": "Weather",
+    "whenToGo": "When To Go",
+    "cuisine": "Cuisine",
+    "ideasForYourTrip": "Ideas For <br class='sm:hidden' /> Your <br class='max-sm:hidden' /> Trip To <br class='sm:hidden' />"
+  },
+  "toursPage": {
+    "featuredHeading": "Featured",
+    "featuredSliderDay": "Days",
+    "featuredSliderNight": "Nights",
+    "planYourJourney": "Lets&rsquo;s Plan <br class='max-sm:hidden' /> Your <br class='sm:hidden' /> <strong class='inline text-secondary-color'>Journey</strong>"
+  },
+  "becomeAPartnerPage": {
+    "heading": "Would You <br /> Like to <strong class='inline text-secondary-color'>Work</strong> <br /> <strong class='inline text-secondary-color'>with us?</strong>",
+    "paragraph": "If you have a product or service you think we would be interested in, we would love to hear from you. Please complete the contact form below, so we can direct your enquiry to the relevant team. <br /> <br /> If the opportunity is of interest a member of the team will be in touch. We kindly ask that you wait to hear from us.",
+    "contactingAbout": "What are you contacting us about?",
+    "radioButtonHeading": "Which Department Is Your Product/Service Most Relevant To?",
+    "contactDetailHeading": "Your Contact Details"
+  },
+  "successModal": {
+    "heading": "Thank You",
+    "message": "Our Travel Specialist will get in touch with you shortly."
+  },
+  "notFound": {
+    "pageNotFound": "Sorry, Page not found",
+    "linkBroken": "the link you requested broken or page has been removed"
+  },
+  "subscribeModal": {
+    "heading": "Would You Like To Hear More About The Latest Travel Trends?",
+    "subHeading": "Subscribe to our newsletter & stay updated"
+  }
+}
