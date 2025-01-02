@@ -4,8 +4,6 @@ const t = new translate({
   region: process.env.NEXT_PUBLIC_S3_REGION,
   accessKeyId: process.env.NEXT_PUBLIC_S3_ACCESS_KEY,
   secretAccessKey: process.env.NEXT_PUBLIC_S3_SECRET_KEY,
-  // accessKeyId: "AKIAVRUVUJMNR2DLFP4O",
-  // secretAccessKey: "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",
 });
 
 export async function translateObj(
