@@ -1,8 +1,15 @@
-import React from "react";
+import React, { Suspense } from "react";
 import FormsPage from "./components/formsPage";
 
+function SearchBarFallback() {
+  return <>Loading...</>;
+}
 function Forms() {
-  return <FormsPage />;
+  return (
+    <Suspense fallback={<SearchBarFallback />}>
+      <FormsPage />
+    </Suspense>
+  );
 }
 
 export default Forms;
