@@ -126,7 +126,7 @@ export default CookiePolicy;
 
 export async function generateStaticParams() {
   const languages = await prisma.languages.findMany({});
-  return languages.map((lang) => ({
+  return languages.map((lang: any) => ({
     lang: lang.locale,
   }));
 }

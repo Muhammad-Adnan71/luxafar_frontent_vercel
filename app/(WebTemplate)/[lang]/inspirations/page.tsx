@@ -73,82 +73,80 @@ async function Inspirations({
   const { lang, holidayTypeId, destinationId } = resolvedParams;
   const pageSize = "9";
   const pageNum = "1";
-  const [inspirationCount, inspirations, featuredInspirations] =
-    await prisma.$transaction([
-      prisma.inspirations.count({
-        where: {
-          isFeatured: false,
-          isActive: true,
-          isDeleted: false,
-          ...(destinationId && { destinationId: Number(destinationId) }),
-          ...(holidayTypeId && { holidayTypeId: Number(holidayTypeId) }),
-        },
+  const inspirationCount = await prisma.inspirations.count({
+    where: {
+      isFeatured: false,
+      isActive: true,
+      isDeleted: false,
+      ...(destinationId && { destinationId: Number(destinationId) }),
+      ...(holidayTypeId && { holidayTypeId: Number(holidayTypeId) }),
+    },
+  });
+  const inspirations = await prisma.inspirations.findMany({
+    ...(pageNum && { skip: (Number(pageNum) - 1) * Number(pageSize) }),
+    ...(pageSize && { take: Number(pageSize) }),
+    where: {
+      isFeatured: false,
+      isActive: true,
+      isDeleted: false,
+
+      ...(destinationId && {
+        destination: { some: { id: Number(destinationId) } },
       }),
-      prisma.inspirations.findMany({
-        ...(pageNum && { skip: (Number(pageNum) - 1) * Number(pageSize) }),
-        ...(pageSize && { take: Number(pageSize) }),
+      ...(holidayTypeId && {
+        holidayType: { some: { id: Number(holidayTypeId) } },
+      }),
+    },
+
+    orderBy: {
+      inspirationSortId: "desc",
+    },
+
+    include: {
+      media: true,
+      destination: true,
+      seoMeta: true,
+      InspirationsTranslation: {
         where: {
-          isFeatured: false,
-          isActive: true,
-          isDeleted: false,
-
-          ...(destinationId && {
-            destination: { some: { id: Number(destinationId) } },
-          }),
-          ...(holidayTypeId && {
-            holidayType: { some: { id: Number(holidayTypeId) } },
-          }),
+          language: {
+            locale: lang,
+          },
         },
-
-        orderBy: {
-          inspirationSortId: "desc",
-        },
-
+      },
+      inspirationDetail: {
         include: {
-          media: true,
-          destination: true,
-          seoMeta: true,
-          InspirationsTranslation: {
+          InspirationDetailTranslation: {
             where: {
               language: {
                 locale: lang,
               },
             },
           },
-          inspirationDetail: {
-            include: {
-              InspirationDetailTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
-                  },
-                },
-              },
-              media: true,
-            },
-          },
-        },
-      }),
-      prisma.inspirations.findMany({
-        where: {
-          isFeatured: true,
-          isDeleted: false,
-          isActive: true,
-        },
-        include: {
           media: true,
-          destination: true,
-          seoMeta: true,
-          InspirationsTranslation: {
-            where: {
-              language: {
-                locale: lang,
-              },
-            },
+        },
+      },
+    },
+  });
+  const featuredInspirations = await prisma.inspirations.findMany({
+    where: {
+      isFeatured: true,
+      isDeleted: false,
+      isActive: true,
+    },
+    include: {
+      media: true,
+      destination: true,
+      seoMeta: true,
+      InspirationsTranslation: {
+        where: {
+          language: {
+            locale: lang,
           },
         },
-      }),
-    ]);
+      },
+    },
+  });
+
   const [inspirationResponse, featuredInspirationsResponse] = await Promise.all(
     [
       convertMediaIdsResponseIntoMediaUrl(inspirations),
@@ -188,7 +186,7 @@ export default Inspirations;
 
 export async function generateStaticParams() {
   const languages = await prisma.languages.findMany({});
-  return languages.map((lang) => ({
+  return languages.map((lang: any) => ({
     lang: lang.locale,
   }));
 }

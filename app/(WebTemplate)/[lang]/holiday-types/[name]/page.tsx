@@ -140,10 +140,7 @@ async function HolidayTypeDetail({
       },
     },
   });
-  // const [inspirations] = await prisma.$transaction(async (tx: any) => {
 
-  //   return [holidayType, tours, inspirations];
-  // });
   const inspirations = await prisma.inspirations.findMany({
     where: {
       isActive: true,

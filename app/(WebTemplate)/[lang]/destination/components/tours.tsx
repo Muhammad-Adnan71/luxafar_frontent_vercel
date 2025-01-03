@@ -26,12 +26,7 @@ export default function Tours({
   const { planContactBanner, button, destinationPage, locale } = dictionary;
   const destinationName =
     destination && destination?.charAt(0).toUpperCase() + destination?.slice(1);
-  console.log(
-    pathNameByLocale(
-      locale,
-      `${WEB_ROUTES.INSPIRATIONS}/${replaceSpacesWithDash(destinationName)}`
-    )
-  );
+
   return (
     <Container>
       <div>

@@ -99,10 +99,10 @@ const BespokePlane = async ({
   });
 
   const data = {
-    data: bespokeQuestions.map((ele) => ({
+    data: bespokeQuestions.map((ele: any) => ({
       ...ele,
       ...ele.BespokeQuestionTranslation[0],
-      bespokeQuestionOptions: ele.bespokeQuestionOptions.map((item) => ({
+      bespokeQuestionOptions: ele.bespokeQuestionOptions.map((item: any) => ({
         ...item,
         ...item.BespokeQuestionOptionsTranslation[0],
       })),
@@ -116,7 +116,7 @@ export default BespokePlane;
 
 export async function generateStaticParams() {
   const languages = await prisma.languages.findMany({});
-  return languages.map((lang) => ({
+  return languages.map((lang: any) => ({
     lang: lang.locale,
   }));
 }

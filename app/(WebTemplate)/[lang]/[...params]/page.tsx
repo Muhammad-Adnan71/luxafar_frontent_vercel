@@ -109,9 +109,13 @@ export async function generateMetadata({
         },
       };
 
-      const {
-        seoMeta: { description, title, keywords, slug },
-      } = response?.data?.destination;
+      // const {
+      //   seoMeta: { description, title, keywords, slug },
+      // } = response?.data?.destination.seoMeta?.description;
+      const title = response?.data?.destination.seoMeta?.title;
+      const keywords = response?.data?.destination.seoMeta?.keywords;
+      const description = response?.data?.destination.seoMeta?.description;
+      const slug = response?.data?.destination.seoMeta?.slug;
       const metaDescription = removeParaTagsFromString(description as string);
 
       return {
@@ -149,7 +153,7 @@ export async function generateMetadata({
             seoMeta: true,
           },
         })
-        .catch((err): undefined => {
+        .catch((err: any): undefined => {
           return undefined; // Return undefined instead of NextResponse
         });
 
@@ -160,9 +164,10 @@ export async function generateMetadata({
         },
       };
 
-      const {
-        seoMeta: { description, title, keywords, slug },
-      } = response?.data?.tour;
+      const title = response?.data?.tour.seoMeta?.title;
+      const keywords = response?.data?.tour.seoMeta?.keywords;
+      const description = response?.data?.tour.seoMeta?.description;
+      const slug = response?.data?.tour.seoMeta?.slug;
 
       const metaDescription = removeParaTagsFromString(description as string);
 
@@ -221,7 +226,7 @@ export async function generateMetadata({
             },
           },
         })
-        .catch((err): undefined => {
+        .catch((err: any): undefined => {
           return undefined; // Return undefined instead of NextResponse
         });
 
@@ -232,9 +237,10 @@ export async function generateMetadata({
         },
       };
 
-      const {
-        seoMeta: { description, title, keywords, slug },
-      } = response?.data.inspiration;
+      const title = response?.data?.inspiration.seoMeta?.title;
+      const keywords = response?.data?.inspiration.seoMeta?.keywords;
+      const description = response?.data?.inspiration.seoMeta?.description;
+      const slug = response?.data?.inspiration.seoMeta?.slug;
 
       const metaDescription = removeParaTagsFromString(description as string);
 
@@ -273,7 +279,7 @@ export async function generateMetadata({
             seoMeta: true,
           },
         })
-        .catch((err): undefined => {
+        .catch((err: any): undefined => {
           return undefined; // Return undefined instead of NextResponse
         });
 
@@ -284,9 +290,10 @@ export async function generateMetadata({
         },
       };
 
-      const {
-        seoMeta: { description, title, keywords, slug },
-      } = response?.data?.place;
+      const title = response?.data?.place.seoMeta?.title;
+      const keywords = response?.data?.place.seoMeta?.keywords;
+      const description = response?.data?.place.seoMeta?.description;
+      const slug = response?.data?.place.seoMeta?.slug;
 
       const metaDescription = removeParaTagsFromString(description as string);
       return {

@@ -17,7 +17,6 @@ import { prisma } from "@utils/prisma";
 export const dynamic = "force-static";
 export const revalidate = false;
 
-
 // export async function generateMetadata({
 //   params: { lang, params },
 // }: {
@@ -61,163 +60,150 @@ export const revalidate = false;
 
 const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
   const { lang } = await params;
-  // const locale = getLocaleFromServer(lang);
 
-  // const {
-  //   data: { banners, partners, page, faqs, testimonials, inspirations },
-  // } = await getData(lang);
-  // console.log("asdaswete");
-  // const response2 = await prisma.languages.findMany({});
-  // console.log(response2, "asdhkahsfkhaskdh");
-  // const response = await getData(lang);
-  // console.log(response, "asasasdasfasfd");
-
-  const [partners, banners, faqs, testimonials, inspirations, pages] =
-    await prisma.$transaction([
-      prisma.partners.findMany({
+  const partners = await prisma.partners.findMany({
+    where: {
+      isDeleted: false,
+      isActive: true,
+    },
+    orderBy: {
+      sortId: "asc",
+    },
+    include: {
+      media: true,
+    },
+  });
+  const banners = await prisma.banner.findMany({
+    where: {
+      isActive: true,
+      isDeleted: false,
+    },
+    include: {
+      media: true,
+      bannerTranslation: {
         where: {
-          isDeleted: false,
-          isActive: true,
+          language: {
+            lang,
+          },
         },
+      },
+    },
+    orderBy: {
+      id: "asc",
+    },
+  });
+  const faqs = await prisma.faqs.findMany({
+    where: {
+      isActive: true,
+      isDeleted: false,
+    },
+    include: {
+      faqsTranslation: {
+        where: {
+          language: {
+            lang,
+          },
+        },
+      },
+    },
+    orderBy: {
+      id: "desc",
+    },
+  });
+  const testimonials = await prisma.testimonial.findMany({
+    where: {
+      isActive: true,
+      isDeleted: false,
+      destinationId: null,
+    },
+    orderBy: { sortId: "asc" },
+    include: {
+      TestimonialTranslation: {
+        where: {
+          language: {
+            lang,
+          },
+        },
+      },
+      clientImageMedia: true,
+      destinationImageMedia: true,
+    },
+  });
+  const inspirations = await prisma.inspirations.findMany({
+    where: {
+      isActive: true,
+      isDeleted: false,
+      isHomePageSort: true,
+    },
+    orderBy: {
+      homePageSortId: "asc",
+    },
+
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      media: {
+        select: {
+          desktopMediaUrl: true,
+          mobileMediaUrl: true,
+        },
+      },
+      seoMeta: {
+        select: {
+          slug: true,
+          title: true,
+          description: true,
+          keywords: true,
+        },
+      },
+      destination: {
+        select: {
+          name: true,
+        },
+      },
+      InspirationsTranslation: {
+        where: {
+          language: {
+            lang,
+          },
+        },
+      },
+    },
+  });
+  const pages = await prisma.pages.findFirst({
+    where: {
+      name: "home",
+    },
+    select: {
+      description: true,
+      title: true,
+      seoMeta: {
+        select: {
+          slug: true,
+          title: true,
+          description: true,
+          keywords: true,
+        },
+      },
+      content: {
+        include: {
+          media: true,
+          ContentTranslation: {
+            where: {
+              language: {
+                lang,
+              },
+            },
+          },
+        },
+
         orderBy: {
           sortId: "asc",
         },
-        include: {
-          media: true,
-        },
-      }),
-      prisma.banner.findMany({
-        where: {
-          isActive: true,
-          isDeleted: false,
-        },
-        include: {
-          media: true,
-          bannerTranslation: {
-            where: {
-              language: {
-                lang,
-              },
-            },
-          },
-        },
-        orderBy: {
-          id: "asc",
-        },
-      }),
-      prisma.faqs.findMany({
-        where: {
-          isActive: true,
-          isDeleted: false,
-        },
-        include: {
-          faqsTranslation: {
-            where: {
-              language: {
-                lang,
-              },
-            },
-          },
-        },
-        orderBy: {
-          id: "desc",
-        },
-      }),
-      prisma.testimonial.findMany({
-        where: {
-          isActive: true,
-          isDeleted: false,
-          destinationId: null,
-        },
-        orderBy: { sortId: "asc" },
-        include: {
-          TestimonialTranslation: {
-            where: {
-              language: {
-                lang,
-              },
-            },
-          },
-          clientImageMedia: true,
-          destinationImageMedia: true,
-        },
-      }),
-      prisma.inspirations.findMany({
-        where: {
-          isActive: true,
-          isDeleted: false,
-          isHomePageSort: true,
-        },
-        orderBy: {
-          homePageSortId: "asc",
-        },
-
-        select: {
-          id: true,
-          title: true,
-          description: true,
-          media: {
-            select: {
-              desktopMediaUrl: true,
-              mobileMediaUrl: true,
-            },
-          },
-          seoMeta: {
-            select: {
-              slug: true,
-              title: true,
-              description: true,
-              keywords: true,
-            },
-          },
-          destination: {
-            select: {
-              name: true,
-            },
-          },
-          InspirationsTranslation: {
-            where: {
-              language: {
-                lang,
-              },
-            },
-          },
-        },
-      }),
-      prisma.pages.findFirst({
-        where: {
-          name: "home",
-        },
-        select: {
-          description: true,
-          title: true,
-          seoMeta: {
-            select: {
-              slug: true,
-              title: true,
-              description: true,
-              keywords: true,
-            },
-          },
-          content: {
-            include: {
-              media: true,
-              ContentTranslation: {
-                where: {
-                  language: {
-                    lang,
-                  },
-                },
-              },
-            },
-
-            orderBy: {
-              sortId: "asc",
-            },
-          },
-        },
-      }),
-    ]);
+      },
+    },
+  });
 
   const [
     partnerResponse,
@@ -262,7 +248,6 @@ const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
       ...ele.InspirationsTranslation[0],
     })),
   };
-  console.log(data);
 
   return (
     <HomePage
@@ -281,7 +266,7 @@ export default Home;
 
 export async function generateStaticParams() {
   const languages = await prisma.languages.findMany({});
-  return languages.map((lang) => ({
+  return languages.map((lang: any) => ({
     lang: lang.locale,
   }));
 }

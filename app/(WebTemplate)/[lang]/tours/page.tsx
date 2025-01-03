@@ -75,209 +75,200 @@ async function Tours({
   const pageSize = "8";
   const pageNum = "1";
 
-  const [
-    toursCount,
-    tours,
-    featuredTours,
-    upcomingTours,
-    page,
-    inspirations,
-    bespokeQuestion,
-  ] = await prisma.$transaction([
-    prisma.tours.count({
-      where: {
-        isActive: true,
-        isDeleted: false,
+  const toursCount = await prisma.tours.count({
+    where: {
+      isActive: true,
+      isDeleted: false,
 
-        AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
-        ...(destinationId && {
-          tourDestinations: {
-            some: {
-              destinationId: Number(destinationId),
-            },
-          },
-        }),
-
-        ...(holidayTypeId && {
-          tourHoliDayType: {
-            some: {
-              holidayTypeId: Number(holidayTypeId),
-            },
-          },
-        }),
-      },
-    }),
-    prisma.tours.findMany({
-      ...(pageNum && { skip: (Number(pageNum) - 1) * Number(pageSize) }),
-      ...(pageSize && { take: Number(pageSize) }),
-      where: {
-        isActive: true,
-
-        isDeleted: false,
-        AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
-        ...(destinationId && {
-          tourDestinations: {
-            some: {
-              destinationId: Number(destinationId),
-            },
-          },
-        }),
-        ...(holidayTypeId && {
-          tourHoliDayType: {
-            some: {
-              holidayTypeId: Number(holidayTypeId),
-            },
-          },
-        }),
-      },
-
-      orderBy: {
-        sortId: "desc",
-      },
-
-      include: {
-        ToursTranslation: {
-          where: {
-            language: {
-              locale: lang,
-            },
-          },
-        },
-        bannerImageMedia: true,
+      AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
+      ...(destinationId && {
         tourDestinations: {
-          include: {
-            destination: true,
+          some: {
+            destinationId: Number(destinationId),
           },
         },
-        seoMeta: true,
-      },
-    }),
-    prisma.tours.findMany({
-      where: {
-        isFeatured: true,
-        isDeleted: false,
-        isActive: true,
-        AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
-      },
-      include: {
-        bannerImageMedia: true,
+      }),
+
+      ...(holidayTypeId && {
+        tourHoliDayType: {
+          some: {
+            holidayTypeId: Number(holidayTypeId),
+          },
+        },
+      }),
+    },
+  });
+  const tours = await prisma.tours.findMany({
+    ...(pageNum && { skip: (Number(pageNum) - 1) * Number(pageSize) }),
+    ...(pageSize && { take: Number(pageSize) }),
+    where: {
+      isActive: true,
+
+      isDeleted: false,
+      AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
+      ...(destinationId && {
         tourDestinations: {
-          include: {
-            destination: true,
+          some: {
+            destinationId: Number(destinationId),
           },
         },
-        ToursTranslation: {
-          where: {
-            language: {
-              locale: lang,
-            },
+      }),
+      ...(holidayTypeId && {
+        tourHoliDayType: {
+          some: {
+            holidayTypeId: Number(holidayTypeId),
           },
         },
-        seoMeta: true,
-      },
-    }),
-    prisma.tours.findMany({
-      where: {
-        OR: [{ price: null }, { price: { lte: 0 } }],
-        isDeleted: false,
-        isActive: true,
-      },
-      include: {
-        bannerImageMedia: true,
-        tourDestinations: true,
-        seoMeta: true,
-        ToursTranslation: {
-          where: {
-            language: {
-              locale: lang,
-            },
-          },
-        },
-      },
-    }),
-    prisma.pages.findFirst({
-      where: {
-        name: "tours",
-      },
-      include: {
-        seoMeta: true,
-        content: {
-          include: {
-            media: true,
-            ContentTranslation: {
-              where: {
-                language: {
-                  locale: lang,
-                },
-              },
-            },
-          },
-        },
-      },
-    }),
-    prisma.inspirations.findMany({
-      skip: 0,
-      take: 3,
-      where: {
-        isActive: true,
-        isDeleted: false,
-      },
+      }),
+    },
 
-      orderBy: {
-        inspirationSortId: "desc",
-      },
+    orderBy: {
+      sortId: "desc",
+    },
 
-      include: {
-        InspirationsTranslation: {
-          where: {
-            language: {
-              locale: lang,
-            },
+    include: {
+      ToursTranslation: {
+        where: {
+          language: {
+            locale: lang,
           },
         },
-        media: true,
-        destination: true,
-        seoMeta: true,
-        inspirationDetail: {
-          include: {
-            media: true,
-            InspirationDetailTranslation: {
-              where: {
-                language: {
-                  locale: lang,
-                },
+      },
+      bannerImageMedia: true,
+      tourDestinations: {
+        include: {
+          destination: true,
+        },
+      },
+      seoMeta: true,
+    },
+  });
+  const featuredTours = await prisma.tours.findMany({
+    where: {
+      isFeatured: true,
+      isDeleted: false,
+      isActive: true,
+      AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
+    },
+    include: {
+      bannerImageMedia: true,
+      tourDestinations: {
+        include: {
+          destination: true,
+        },
+      },
+      ToursTranslation: {
+        where: {
+          language: {
+            locale: lang,
+          },
+        },
+      },
+      seoMeta: true,
+    },
+  });
+  const upcomingTours = await prisma.tours.findMany({
+    where: {
+      OR: [{ price: null }, { price: { lte: 0 } }],
+      isDeleted: false,
+      isActive: true,
+    },
+    include: {
+      bannerImageMedia: true,
+      tourDestinations: true,
+      seoMeta: true,
+      ToursTranslation: {
+        where: {
+          language: {
+            locale: lang,
+          },
+        },
+      },
+    },
+  });
+  const page = await prisma.pages.findFirst({
+    where: {
+      name: "tours",
+    },
+    include: {
+      seoMeta: true,
+      content: {
+        include: {
+          media: true,
+          ContentTranslation: {
+            where: {
+              language: {
+                locale: lang,
               },
             },
           },
         },
       },
-    }),
-    prisma.bespokeQuestion.findMany({
-      where: {
-        formType: "bespoke",
-      },
-      include: {
-        BespokeQuestionTranslation: {
-          where: {
-            language: {
-              locale: lang,
-            },
+    },
+  });
+  const inspirations = await prisma.inspirations.findMany({
+    skip: 0,
+    take: 3,
+    where: {
+      isActive: true,
+      isDeleted: false,
+    },
+
+    orderBy: {
+      inspirationSortId: "desc",
+    },
+
+    include: {
+      InspirationsTranslation: {
+        where: {
+          language: {
+            locale: lang,
           },
         },
-        bespokeQuestionOptions: {
-          include: {
-            BespokeQuestionOptionsTranslation: {
-              where: {
-                language: {
-                  locale: lang,
-                },
+      },
+      media: true,
+      destination: true,
+      seoMeta: true,
+      inspirationDetail: {
+        include: {
+          media: true,
+          InspirationDetailTranslation: {
+            where: {
+              language: {
+                locale: lang,
               },
             },
           },
         },
       },
-    }),
-  ]);
+    },
+  });
+  const bespokeQuestion = await prisma.bespokeQuestion.findMany({
+    where: {
+      formType: "bespoke",
+    },
+    include: {
+      BespokeQuestionTranslation: {
+        where: {
+          language: {
+            locale: lang,
+          },
+        },
+      },
+      bespokeQuestionOptions: {
+        include: {
+          BespokeQuestionOptionsTranslation: {
+            where: {
+              language: {
+                locale: lang,
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+
   const [
     toursResponse,
     featuredToursResponse,
@@ -291,7 +282,6 @@ async function Tours({
     convertMediaIdsResponseIntoMediaUrl(page?.content),
     convertMediaIdsResponseIntoMediaUrl(inspirations),
   ]);
-  // console.log(page?.content[1], "contentResponse");
 
   const data = {
     page: {
@@ -333,17 +323,6 @@ async function Tours({
       })),
     })),
   };
-  // const {
-  //   data: {
-  //     page,
-  //     featuredTours,
-  //     tours,
-  //     upcomingTours,
-  //     count,
-  //     inspirations,
-  //     bespokeQuestion,
-  //   },
-  // } = await apiGetToursPageService({ pageSize: "8", pageNum: "1", locale });
 
   return (
     <ToursPage
@@ -362,7 +341,7 @@ export default Tours;
 
 export async function generateStaticParams() {
   const languages = await prisma.languages.findMany({});
-  return languages.map((lang) => ({
+  return languages.map((lang: any) => ({
     lang: lang.locale,
   }));
 }

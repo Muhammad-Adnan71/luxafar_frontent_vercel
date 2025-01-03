@@ -112,44 +112,42 @@ async function HolidayTypes({ params }: { params: Promise<{ lang: string }> }) {
       },
     },
   };
-  const [holidayTypes, inspirations] = await prisma.$transaction([
-    prisma.holidayType.findMany({
-      where: {
-        isActive: true,
+  const holidayTypes = await prisma.holidayType.findMany({
+    where: {
+      isActive: true,
+    },
+    include: {
+      media: true,
+      seoMeta: true,
+      HolidayTypeTranslation: {
+        where: {
+          language: { locale: lang },
+        },
       },
-      include: {
-        media: true,
-        seoMeta: true,
-        HolidayTypeTranslation: {
-          where: {
-            language: { locale: lang },
+    },
+  });
+  const inspirations = await prisma.inspirations.findMany({
+    where: {
+      isDeleted: false,
+      isActive: true,
+    },
+    take: 3,
+    orderBy: {
+      id: "desc",
+    },
+    include: {
+      seoMeta: true,
+      destination: true,
+      media: true,
+      InspirationsTranslation: {
+        where: {
+          language: {
+            locale: lang,
           },
         },
       },
-    }),
-    prisma.inspirations.findMany({
-      where: {
-        isDeleted: false,
-        isActive: true,
-      },
-      take: 3,
-      orderBy: {
-        id: "desc",
-      },
-      include: {
-        seoMeta: true,
-        destination: true,
-        media: true,
-        InspirationsTranslation: {
-          where: {
-            language: {
-              locale: lang,
-            },
-          },
-        },
-      },
-    }),
-  ]);
+    },
+  });
 
   const [holidayResponse, inspirationResponse] = await Promise.all([
     convertMediaIdsResponseIntoMediaUrl(holidayTypes),
@@ -192,7 +190,7 @@ export default HolidayTypes;
 
 export async function generateStaticParams() {
   const languages = await prisma.languages.findMany({});
-  return languages.map((lang) => ({
+  return languages.map((lang: any) => ({
     lang: lang.locale,
   }));
 }

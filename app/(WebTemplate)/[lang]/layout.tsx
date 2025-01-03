@@ -104,64 +104,61 @@ export default async function Layout({
   //   data: { destinations, configuration, inspirations },
   // } = await apiGetTemplateConfiguration({ locale });
   try {
-    const [destinations, inspirations, configuration] =
-      await prisma.$transaction([
-        prisma.destinations.findMany({
+    const destinations = await prisma.destinations.findMany({
+      where: {
+        isActive: true,
+        isDeleted: false,
+      },
+      include: {
+        seoMeta: true,
+        DestinationsTranslation: {
+          where: {
+            language: {
+              locale: lang,
+            },
+          },
+        },
+        placeToVisit: {
           where: {
             isActive: true,
             isDeleted: false,
           },
-          include: {
-            seoMeta: true,
-            DestinationsTranslation: {
-              where: {
-                language: {
-                  locale: lang,
-                },
-              },
-            },
-            placeToVisit: {
-              where: {
-                isActive: true,
-                isDeleted: false,
-              },
-            },
-          },
-        }),
-        prisma.inspirations.findMany({
+        },
+      },
+    });
+    const inspirations = await prisma.inspirations.findMany({
+      where: {
+        isActive: true,
+        isDeleted: false,
+      },
+      include: {
+        destination: true,
+        seoMeta: true,
+        InspirationsTranslation: {
           where: {
-            isActive: true,
-            isDeleted: false,
-          },
-          include: {
-            destination: true,
-            seoMeta: true,
-            InspirationsTranslation: {
-              where: {
-                language: {
-                  locale: lang,
-                },
-              },
+            language: {
+              locale: lang,
             },
           },
-          orderBy: {
-            id: "desc",
-          },
-          take: 3,
-        }),
-        prisma.configuration.findFirst({
-          include: {
-            media: true,
-            ConfigurationTranslation: {
-              where: {
-                language: {
-                  locale: lang,
-                },
-              },
+        },
+      },
+      orderBy: {
+        id: "desc",
+      },
+      take: 3,
+    });
+    const configuration = await prisma.configuration.findFirst({
+      include: {
+        media: true,
+        ConfigurationTranslation: {
+          where: {
+            language: {
+              locale: lang,
             },
           },
-        }),
-      ]);
+        },
+      },
+    });
 
     const configurationResponse = await convertMediaIdsResponseIntoMediaUrl(
       configuration
