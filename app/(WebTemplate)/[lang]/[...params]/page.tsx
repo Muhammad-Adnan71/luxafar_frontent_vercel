@@ -1367,23 +1367,32 @@ export async function generateStaticParams() {
     },
   });
 
+  // List of slugs to exclude
+  const excludedSlugs = ["hawaii", "zanzibar-archipelago"];
+
   // Create an array of all possible route combinations
   const params = [];
 
   for (const language of languages) {
     // For destinations
     for (const destination of destinations) {
-      if (destination.seoMeta?.slug) {
+      if (
+        destination.seoMeta?.slug &&
+        !excludedSlugs.includes(destination.seoMeta.slug)
+      ) {
         params.push({
           lang: language.locale,
-          params: [destination.seoMeta.slug], // Note: params must be an array for catch-all routes
+          params: [destination.seoMeta.slug],
         });
       }
     }
 
     // For tours
     for (const tour of tours) {
-      if (tour.seoMeta?.slug) {
+      if (
+        tour.seoMeta?.slug &&
+        !excludedSlugs.includes(tour.seoMeta.slug)
+      ) {
         params.push({
           lang: language.locale,
           params: [tour.seoMeta.slug],
@@ -1393,7 +1402,10 @@ export async function generateStaticParams() {
 
     // For inspirations
     for (const inspiration of inspirations) {
-      if (inspiration.seoMeta?.slug) {
+      if (
+        inspiration.seoMeta?.slug &&
+        !excludedSlugs.includes(inspiration.seoMeta.slug)
+      ) {
         params.push({
           lang: language.locale,
           params: [inspiration.seoMeta.slug],
@@ -1403,7 +1415,10 @@ export async function generateStaticParams() {
 
     // For places
     for (const place of places) {
-      if (place.seoMeta?.slug) {
+      if (
+        place.seoMeta?.slug &&
+        !excludedSlugs.includes(place.seoMeta.slug)
+      ) {
         params.push({
           lang: language.locale,
           params: [place.seoMeta.slug],
