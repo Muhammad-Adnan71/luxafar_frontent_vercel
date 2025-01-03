@@ -74,17 +74,26 @@ async function HolidayTypeDetail({
 }) {
   const resolvedParams = await params;
   const { lang, name } = resolvedParams;
-  const [holidayType, tours, inspirations] = await prisma.$transaction(
-    async (tx) => {
-      const holidayType = await tx.holidayType.findFirstOrThrow({
+  const holidayType = await prisma.holidayType.findFirstOrThrow({
+    where: {
+      isActive: true,
+      seoMeta: {
+        slug: name,
+      },
+    },
+    include: {
+      HolidayTypeTranslation: {
         where: {
-          isActive: true,
-          seoMeta: {
-            slug: name,
+          language: {
+            locale: lang,
           },
         },
+      },
+      media: true,
+      seoMeta: true,
+      highlights: {
         include: {
-          HolidayTypeTranslation: {
+          HighlightsTranslation: {
             where: {
               language: {
                 locale: lang,
@@ -92,88 +101,77 @@ async function HolidayTypeDetail({
             },
           },
           media: true,
-          seoMeta: true,
-          highlights: {
-            include: {
-              HighlightsTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
-                  },
-                },
-              },
-              media: true,
-            },
-          },
         },
-      });
-      const tours = await tx.tours.findMany({
-        where: {
-          isActive: true,
-          isDeleted: false,
+      },
+    },
+  });
+  const tours = await prisma.tours.findMany({
+    where: {
+      isActive: true,
+      isDeleted: false,
 
-          AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
-          tourHoliDayType: {
-            some: {
-              holidayType: {
-                id: holidayType.id,
-              },
-            },
-          },
-        },
-        orderBy: {
-          id: "desc",
-        },
-        take: 2,
-        include: {
-          seoMeta: true,
-          bannerImageMedia: true,
-          ToursTranslation: {
-            where: {
-              language: {
-                locale: lang,
-              },
-            },
-          },
-          tourDestinations: {
-            include: {
-              destination: true,
-            },
-          },
-        },
-      });
-      const inspirations = await tx.inspirations.findMany({
-        where: {
-          isActive: true,
-          isDeleted: false,
-
+      AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
+      tourHoliDayType: {
+        some: {
           holidayType: {
-            some: {
-              id: holidayType.id,
-            },
+            id: holidayType.id,
           },
         },
-        take: 3,
-        orderBy: {
-          id: "desc",
+      },
+    },
+    orderBy: {
+      id: "desc",
+    },
+    take: 2,
+    include: {
+      seoMeta: true,
+      bannerImageMedia: true,
+      ToursTranslation: {
+        where: {
+          language: {
+            locale: lang,
+          },
         },
+      },
+      tourDestinations: {
         include: {
-          seoMeta: true,
           destination: true,
-          media: true,
-          InspirationsTranslation: {
-            where: {
-              language: {
-                locale: lang,
-              },
-            },
+        },
+      },
+    },
+  });
+  // const [inspirations] = await prisma.$transaction(async (tx: any) => {
+
+  //   return [holidayType, tours, inspirations];
+  // });
+  const inspirations = await prisma.inspirations.findMany({
+    where: {
+      isActive: true,
+      isDeleted: false,
+
+      holidayType: {
+        some: {
+          id: holidayType.id,
+        },
+      },
+    },
+    take: 3,
+    orderBy: {
+      id: "desc",
+    },
+    include: {
+      seoMeta: true,
+      destination: true,
+      media: true,
+      InspirationsTranslation: {
+        where: {
+          language: {
+            locale: lang,
           },
         },
-      });
-
-      return [holidayType, tours, inspirations];
-    }
-  );
+      },
+    },
+  });
 
   const mediaUrls = await convertMediaIdsResponseIntoMediaUrl(holidayType);
   const [highlights, toursResponse, inspirationsResponse] = await Promise.all([
@@ -229,7 +227,6 @@ export async function generateStaticParams() {
       isActive: true,
     },
   });
-  console.log(HolidayTypes, "ashbifakjshdjasojdojasodj");
 
   // Create an array of all possible route combinations
   const params = [];
@@ -245,7 +242,6 @@ export async function generateStaticParams() {
       }
     }
   }
-  console.log(params);
 
   return params;
 }

@@ -98,7 +98,7 @@ export async function generateMetadata({
             seoMeta: true,
           },
         })
-        .catch((err): undefined => {
+        .catch((err: any): undefined => {
           return undefined; // Return undefined instead of NextResponse
         });
 
@@ -377,250 +377,249 @@ async function page({ params }: PageProps) {
         },
       });
       if (destinationExists.placeToVisit.length) {
-        const [destination, holidayTypes] = await prisma.$transaction([
-          prisma.destinations.findFirstOrThrow({
-            where: {
-              isActive: true,
-              isDeleted: false,
-              id: Number(destinationExists?.id),
+        const destination = await prisma.destinations.findFirstOrThrow({
+          where: {
+            isActive: true,
+            isDeleted: false,
+            id: Number(destinationExists?.id),
+          },
+          include: {
+            DestinationsTranslation: {
+              where: {
+                language: {
+                  locale: lang,
+                },
+              },
             },
-            include: {
-              DestinationsTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
-                  },
-                },
-              },
-              content: {
-                include: {
-                  ContentTranslation: {
-                    where: {
-                      language: {
-                        locale: lang,
-                      },
+            content: {
+              include: {
+                ContentTranslation: {
+                  where: {
+                    language: {
+                      locale: lang,
                     },
                   },
-                  media: true,
                 },
+                media: true,
               },
-              seoMeta: true,
-              tourDestinations: {
-                where: {
-                  tour: {
-                    isActive: true,
-                    isDeleted: false,
-                    AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
-                    tourDestinations: {
-                      some: {
-                        destination: {
-                          id: Number(destinationExists?.id),
-                        },
+            },
+            seoMeta: true,
+            tourDestinations: {
+              where: {
+                tour: {
+                  isActive: true,
+                  isDeleted: false,
+                  AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
+                  tourDestinations: {
+                    some: {
+                      destination: {
+                        id: Number(destinationExists?.id),
                       },
                     },
                   },
                 },
-                include: {
-                  destination: true,
+              },
+              include: {
+                destination: true,
 
-                  tour: {
-                    include: {
-                      ToursTranslation: {
-                        where: {
-                          language: {
-                            locale: lang,
-                          },
+                tour: {
+                  include: {
+                    ToursTranslation: {
+                      where: {
+                        language: {
+                          locale: lang,
                         },
                       },
-                      bannerImageMedia: true,
-                      accommodationImageMedia: true,
-                      dayToDayItinerary: {
-                        include: {
-                          DayToDayItineraryTranslation: {
-                            where: {
-                              language: {
-                                locale: lang,
-                              },
+                    },
+                    bannerImageMedia: true,
+                    accommodationImageMedia: true,
+                    dayToDayItinerary: {
+                      include: {
+                        DayToDayItineraryTranslation: {
+                          where: {
+                            language: {
+                              locale: lang,
                             },
                           },
                         },
                       },
-                      seoMeta: true,
+                    },
+                    seoMeta: true,
+                  },
+                },
+              },
+            },
+            thingsToDo: {
+              orderBy: {
+                sortId: "asc",
+              },
+              where: {
+                isDeleted: false,
+                isActive: true,
+                destinationId: Number(destinationExists?.id),
+              },
+              include: {
+                media: true,
+                ThingsToDoTranslation: {
+                  where: {
+                    language: {
+                      locale: lang,
                     },
                   },
                 },
               },
-              thingsToDo: {
-                orderBy: {
-                  sortId: "asc",
-                },
-                where: {
-                  isDeleted: false,
-                  isActive: true,
-                  destinationId: Number(destinationExists?.id),
-                },
-                include: {
-                  media: true,
-                  ThingsToDoTranslation: {
-                    where: {
-                      language: {
-                        locale: lang,
-                      },
+            },
+            Testimonial: {
+              orderBy: {
+                destinationSortId: "asc",
+              },
+              where: {
+                isDeleted: false,
+                isActive: true,
+                destinationId: Number(destinationExists?.id),
+              },
+              include: {
+                clientImageMedia: true,
+                destinationImageMedia: true,
+                TestimonialTranslation: {
+                  where: {
+                    language: {
+                      locale: lang,
                     },
                   },
                 },
               },
-              Testimonial: {
-                orderBy: {
-                  destinationSortId: "asc",
-                },
-                where: {
-                  isDeleted: false,
-                  isActive: true,
-                  destinationId: Number(destinationExists?.id),
-                },
-                include: {
-                  clientImageMedia: true,
-                  destinationImageMedia: true,
-                  TestimonialTranslation: {
-                    where: {
-                      language: {
-                        locale: lang,
-                      },
+            },
+            seasonToVisit: {
+              where: {
+                destinationId: Number(destinationExists?.id),
+              },
+              include: {
+                destination: true,
+                media: true,
+                SeasonToVisitTranslation: {
+                  where: {
+                    language: {
+                      locale: lang,
                     },
                   },
                 },
               },
-              seasonToVisit: {
-                where: {
-                  destinationId: Number(destinationExists?.id),
-                },
-                include: {
-                  destination: true,
-                  media: true,
-                  SeasonToVisitTranslation: {
-                    where: {
-                      language: {
-                        locale: lang,
-                      },
-                    },
-                  },
-                },
+            },
+            placeToVisit: {
+              orderBy: {
+                sortId: "asc",
               },
-              placeToVisit: {
-                orderBy: {
-                  sortId: "asc",
-                },
-                where: {
-                  isDeleted: false,
-                  destinationId: Number(destinationExists?.id),
-                  isActive: true,
-                },
-                include: {
-                  destination: true,
-                  seoMeta: true,
-                  media: true,
-                  PlaceToVisitTranslation: {
-                    where: {
-                      language: {
-                        locale: lang,
-                      },
+              where: {
+                isDeleted: false,
+                destinationId: Number(destinationExists?.id),
+                isActive: true,
+              },
+              include: {
+                destination: true,
+                seoMeta: true,
+                media: true,
+                PlaceToVisitTranslation: {
+                  where: {
+                    language: {
+                      locale: lang,
                     },
                   },
-                  reviews: {
-                    include: {
-                      media: true,
-                    },
+                },
+                reviews: {
+                  include: {
+                    media: true,
                   },
-                  attraction: {
-                    include: {
-                      media: true,
-                      AttractionTranslation: {
-                        where: {
-                          language: {
-                            locale: lang,
-                          },
+                },
+                attraction: {
+                  include: {
+                    media: true,
+                    AttractionTranslation: {
+                      where: {
+                        language: {
+                          locale: lang,
                         },
                       },
                     },
                   },
                 },
               },
-              inspirations: {
-                where: {
-                  isDeleted: false,
-                  isActive: true,
+            },
+            inspirations: {
+              where: {
+                isDeleted: false,
+                isActive: true,
 
-                  destination: {
-                    some: {
-                      id: destinationExists.id,
-                    },
+                destination: {
+                  some: {
+                    id: destinationExists.id,
                   },
-                },
-                include: {
-                  InspirationsTranslation: {
-                    where: {
-                      language: {
-                        locale: lang,
-                      },
-                    },
-                  },
-                  seoMeta: true,
-                  media: true,
-                  destination: true,
                 },
               },
-              destinationFeatureOffered: {
-                where: {
-                  destinationId: Number(destinationExists?.id),
-                },
-                include: {
-                  DestinationFeatureOfferedTranslation: {
-                    where: {
-                      language: {
-                        locale: lang,
-                      },
+              include: {
+                InspirationsTranslation: {
+                  where: {
+                    language: {
+                      locale: lang,
                     },
                   },
-                  destinationFeatures: {
-                    include: {
-                      DestinationFeaturesTranslation: {
-                        where: {
-                          language: {
-                            locale: lang,
-                          },
+                },
+                seoMeta: true,
+                media: true,
+                destination: true,
+              },
+            },
+            destinationFeatureOffered: {
+              where: {
+                destinationId: Number(destinationExists?.id),
+              },
+              include: {
+                DestinationFeatureOfferedTranslation: {
+                  where: {
+                    language: {
+                      locale: lang,
+                    },
+                  },
+                },
+                destinationFeatures: {
+                  include: {
+                    DestinationFeaturesTranslation: {
+                      where: {
+                        language: {
+                          locale: lang,
                         },
                       },
-                      media: true,
                     },
-                  },
-                },
-              },
-              gallery: {
-                where: { destinationId: Number(destinationExists?.id) },
-                include: {
-                  media: true,
-                },
-              },
-            },
-          }),
-          prisma.holidayType.findMany({
-            where: {
-              isActive: true,
-            },
-            include: {
-              media: true,
-              seoMeta: true,
-              HolidayTypeTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
+                    media: true,
                   },
                 },
               },
             },
-          }),
-        ]);
+            gallery: {
+              where: { destinationId: Number(destinationExists?.id) },
+              include: {
+                media: true,
+              },
+            },
+          },
+        });
+
+        const holidayTypes = await prisma.holidayType.findMany({
+          where: {
+            isActive: true,
+          },
+          include: {
+            media: true,
+            seoMeta: true,
+            HolidayTypeTranslation: {
+              where: {
+                language: {
+                  locale: lang,
+                },
+              },
+            },
+          },
+        });
 
         const [
           content,
@@ -672,7 +671,7 @@ async function page({ params }: PageProps) {
               ...destination,
               ...destination.DestinationsTranslation?.[0],
               destinationFeatureOffered: destinationFeaturesResponse.map(
-                (ele) => ({
+                (ele: any) => ({
                   ...ele,
                   ...ele.DestinationFeatureOfferedTranslation?.[0],
                   destinationFeatures: {
@@ -810,81 +809,79 @@ async function page({ params }: PageProps) {
           bannerImageMedia: true,
         },
       });
-      const [tours, inspirations, inspirationCount] = await prisma.$transaction(
-        [
-          prisma.tours.findMany({
-            where: {
-              isActive: true,
-              isDeleted: false,
-              AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
-              NOT: {
-                seoMeta: {
-                  slug: slug,
-                },
-              },
-              tourDestinations: {
-                some: {
-                  destination: {
-                    name: tourById.tourDestinations[0].destination.name,
-                  },
-                },
-              },
+      // const [tours, inspirations, inspirationCount]
+      const tours = await prisma.tours.findMany({
+        where: {
+          isActive: true,
+          isDeleted: false,
+          AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
+          NOT: {
+            seoMeta: {
+              slug: slug,
             },
-            skip: 0,
-            take: 2,
-            include: {
-              bannerImageMedia: true,
-              seoMeta: true,
-              ToursTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
-                  },
-                },
-              },
-              tourDestinations: {
-                include: {
-                  destination: true,
-                },
-              },
-            },
-          }),
-          prisma.inspirations.findMany({
-            where: {
-              isActive: true,
-              isDeleted: false,
-
+          },
+          tourDestinations: {
+            some: {
               destination: {
-                some: {
-                  name: tourById.tourDestinations[0].destination.name,
-                },
+                name: tourById.tourDestinations[0].destination.name,
               },
             },
-            skip: 0,
-            take: 3,
-            include: {
-              media: true,
-              destination: true,
-              seoMeta: true,
-              InspirationsTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
-                  },
-                },
-              },
-            },
-          }),
-          prisma.inspirations.count({
+          },
+        },
+        skip: 0,
+        take: 2,
+        include: {
+          bannerImageMedia: true,
+          seoMeta: true,
+          ToursTranslation: {
             where: {
-              isDeleted: false,
-              isActive: true,
-              destinationId: tourById?.tourDestinations[0]
-                .destinationId as number,
+              language: {
+                locale: lang,
+              },
             },
-          }),
-        ]
-      );
+          },
+          tourDestinations: {
+            include: {
+              destination: true,
+            },
+          },
+        },
+      });
+
+      const inspirations = await prisma.inspirations.findMany({
+        where: {
+          isActive: true,
+          isDeleted: false,
+
+          destination: {
+            some: {
+              name: tourById.tourDestinations[0].destination.name,
+            },
+          },
+        },
+        skip: 0,
+        take: 3,
+        include: {
+          media: true,
+          destination: true,
+          seoMeta: true,
+          InspirationsTranslation: {
+            where: {
+              language: {
+                locale: lang,
+              },
+            },
+          },
+        },
+      });
+
+      const inspirationCount = await prisma.inspirations.count({
+        where: {
+          isDeleted: false,
+          isActive: true,
+          destinationId: tourById?.tourDestinations[0]?.destinationId || 0, // Default to 0 if destinationId is undefined
+        },
+      });
 
       const [
         bannerImageResponse,
@@ -1019,108 +1016,108 @@ async function page({ params }: PageProps) {
         },
       });
 
-      const [tours, inspirations, inspirationsCount, places] =
-        await prisma.$transaction([
-          prisma.tours.findMany({
-            where: {
-              isActive: true,
-              isDeleted: false,
-              AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
-              tourDestinations: {
-                some: {
-                  destination: {
-                    id: place?.destinationId,
-                  },
-                },
-              },
-            },
-            take: 2,
-            orderBy: {
-              id: "desc",
-            },
-            include: {
-              ToursTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
-                  },
-                },
-              },
-              bannerImageMedia: true,
-              // destination: true,
-              seoMeta: true,
-              tourDestinations: {
-                include: {
-                  destination: true,
-                },
-              },
-            },
-          }),
-          prisma.inspirations.findMany({
-            where: {
-              isDeleted: false,
+      const tours = await prisma.tours.findMany({
+        where: {
+          isActive: true,
+          isDeleted: false,
+          AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
+          tourDestinations: {
+            some: {
               destination: {
-                some: {
-                  id: place?.destinationId,
-                },
+                id: place?.destinationId,
               },
-              isActive: true,
             },
-            take: 3,
-            orderBy: {
-              id: "desc",
+          },
+        },
+        take: 2,
+        orderBy: {
+          id: "desc",
+        },
+        include: {
+          ToursTranslation: {
+            where: {
+              language: {
+                locale: lang,
+              },
             },
+          },
+          bannerImageMedia: true,
+          // destination: true,
+          seoMeta: true,
+          tourDestinations: {
             include: {
-              InspirationsTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
-                  },
-                },
-              },
-              seoMeta: true,
               destination: true,
-              media: true,
             },
-          }),
-          prisma.inspirations.count({
-            where: {
-              isDeleted: false,
-              destination: {
-                some: {
-                  id: place?.destinationId,
-                },
-              },
-              isActive: true,
-            },
-          }),
-          prisma.placeToVisit.findMany({
-            where: {
-              isDeleted: false,
-              isActive: true,
-              destinationId: place?.destinationId,
-              seoMeta: {
-                slug: {
-                  not: slug,
-                },
-              },
-            },
+          },
+        },
+      });
 
-            take: 3,
-            include: {
-              seoMeta: true,
-              media: true,
-              destination: true,
-              PlaceToVisitTranslation: {
-                where: {
-                  language: {
-                    locale: lang,
-                  },
-                },
+      const inspirations = await prisma.inspirations.findMany({
+        where: {
+          isDeleted: false,
+          destination: {
+            some: {
+              id: place?.destinationId,
+            },
+          },
+          isActive: true,
+        },
+        take: 3,
+        orderBy: {
+          id: "desc",
+        },
+        include: {
+          InspirationsTranslation: {
+            where: {
+              language: {
+                locale: lang,
               },
             },
-          }),
-        ]);
+          },
+          seoMeta: true,
+          destination: true,
+          media: true,
+        },
+      });
+
+      const inspirationsCount = await prisma.inspirations.count({
+        where: {
+          isDeleted: false,
+          destination: {
+            some: {
+              id: place?.destinationId,
+            },
+          },
+          isActive: true,
+        },
+      });
+
+      const places = await prisma.placeToVisit.findMany({
+        where: {
+          isDeleted: false,
+          isActive: true,
+          destinationId: place?.destinationId,
+          seoMeta: {
+            slug: {
+              not: slug,
+            },
+          },
+        },
+
+        take: 3,
+        include: {
+          seoMeta: true,
+          media: true,
+          destination: true,
+          PlaceToVisitTranslation: {
+            where: {
+              language: {
+                locale: lang,
+              },
+            },
+          },
+        },
+      });
 
       const [
         placeResponse,
@@ -1181,80 +1178,77 @@ async function page({ params }: PageProps) {
     }
   } else if (route?.layout === "inspiration") {
     try {
-      const [inspiration, tours] = await prisma.$transaction(async (tx) => {
-        const inspiration = await prisma.inspirations.findFirstOrThrow({
-          where: {
-            isActive: true,
-            isDeleted: false,
+      const inspiration = await prisma.inspirations.findFirstOrThrow({
+        where: {
+          isActive: true,
+          isDeleted: false,
 
-            AND: [
+          AND: [
+            {
+              seoMeta: {
+                slug: {
+                  contains: slug,
+                },
+              },
+            },
+          ],
+        },
+        include: {
+          seoMeta: true,
+          media: true,
+          holidayType: true,
+          destination: true,
+          InspirationsTranslation: {
+            where: {
+              language: {
+                locale: lang,
+              },
+            },
+          },
+          inspirationDetail: {
+            orderBy: [
               {
-                seoMeta: {
-                  slug: {
-                    contains: slug,
-                  },
-                },
+                sortId: "asc",
               },
+              { id: "desc" },
             ],
-          },
-          include: {
-            seoMeta: true,
-            media: true,
-            holidayType: true,
-            destination: true,
-            InspirationsTranslation: {
-              where: {
-                language: {
-                  locale: lang,
-                },
-              },
-            },
-            inspirationDetail: {
-              orderBy: [
-                {
-                  sortId: "asc",
-                },
-                { id: "desc" },
-              ],
-              include: {
-                media: true,
-                InspirationDetailTranslation: {
-                  where: {
-                    language: {
-                      locale: lang,
-                    },
+            include: {
+              media: true,
+              InspirationDetailTranslation: {
+                where: {
+                  language: {
+                    locale: lang,
                   },
                 },
               },
             },
           },
-        });
-        const tours = await prisma.tours.findMany({
-          where: {
-            isActive: true,
-            isDeleted: false,
+        },
+      });
+      const tours = await prisma.tours.findMany({
+        where: {
+          isActive: true,
+          isDeleted: false,
 
-            AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
-          },
-          take: 2,
-          include: {
-            seoMeta: true,
-            bannerImageMedia: true,
-            ToursTranslation: {
-              where: {
-                language: {
-                  locale: lang,
-                },
-              },
-            },
-            tourDestinations: {
-              include: {
-                destination: true,
+          AND: [{ NOT: { price: null } }, { price: { gt: 0 } }],
+        },
+        take: 2,
+        include: {
+          seoMeta: true,
+          bannerImageMedia: true,
+          ToursTranslation: {
+            where: {
+              language: {
+                locale: lang,
               },
             },
           },
-        });
-        return [inspiration, tours];
+          tourDestinations: {
+            include: {
+              destination: true,
+            },
+          },
+        },
       });
 
       const [inspirationDetailResponse, tourResponse, inspirationResponse] =
