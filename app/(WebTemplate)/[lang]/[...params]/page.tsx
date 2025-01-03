@@ -1313,6 +1313,7 @@ async function page({ params }: PageProps) {
       <PlacePage locale={lang} response={response} destinationNameString={""} />
     ),
   };
+  console.log(`Generating ${slug} page`);
   try {
     if (response?.data?.layout) {
       return <>{layout[response.data.layout]}</>;
@@ -1410,7 +1411,6 @@ export async function generateStaticParams() {
       }
     }
   }
-  console.log(`Generating ${params} page`);
 
   return params;
 }
