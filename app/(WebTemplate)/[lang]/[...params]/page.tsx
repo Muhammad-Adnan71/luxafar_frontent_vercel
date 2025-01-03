@@ -31,299 +31,299 @@ type PageProps = {
   };
 };
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata | undefined> {
-  const { lang, params: routeParams } = await params;
-  const slugParam = routeParams[0];
-  let response = null;
+// export async function generateMetadata({
+//   params,
+// }: PageProps): Promise<Metadata | undefined> {
+//   const { lang, params: routeParams } = await params;
+//   const slugParam = routeParams[0];
+//   let response = null;
 
-  try {
-    const route = await prisma.caughtAllRoutes.findFirst({
-      where: {
-        OR: [
-          {
-            destinations: {
-              seoMeta: {
-                slug: slugParam,
-              },
-            },
-          },
-          {
-            inspirations: {
-              seoMeta: {
-                slug: slugParam,
-              },
-            },
-          },
-          {
-            placeToVisit: {
-              seoMeta: {
-                slug: slugParam,
-              },
-            },
-          },
-          {
-            tours: {
-              seoMeta: {
-                slug: slugParam,
-              },
-            },
-          },
-        ],
-      },
-      include: {
-        destinations: true,
-        inspirations: true,
-        placeToVisit: true,
-        tours: true,
-      },
-    });
+//   try {
+//     const route = await prisma.caughtAllRoutes.findFirst({
+//       where: {
+//         OR: [
+//           {
+//             destinations: {
+//               seoMeta: {
+//                 slug: slugParam,
+//               },
+//             },
+//           },
+//           {
+//             inspirations: {
+//               seoMeta: {
+//                 slug: slugParam,
+//               },
+//             },
+//           },
+//           {
+//             placeToVisit: {
+//               seoMeta: {
+//                 slug: slugParam,
+//               },
+//             },
+//           },
+//           {
+//             tours: {
+//               seoMeta: {
+//                 slug: slugParam,
+//               },
+//             },
+//           },
+//         ],
+//       },
+//       include: {
+//         destinations: true,
+//         inspirations: true,
+//         placeToVisit: true,
+//         tours: true,
+//       },
+//     });
 
-    if (route?.layout === "destination") {
-      const destination = await prisma.destinations
-        .findFirstOrThrow({
-          where: {
-            isActive: true,
-            seoMeta: {
-              slug: slugParam,
-            },
-          },
-          include: {
-            content: {
-              include: {
-                media: true,
-              },
-            },
-            seoMeta: true,
-          },
-        })
-        .catch((err: any): undefined => {
-          return undefined; // Return undefined instead of NextResponse
-        });
+//     if (route?.layout === "destination") {
+//       const destination = await prisma.destinations
+//         .findFirstOrThrow({
+//           where: {
+//             isActive: true,
+//             seoMeta: {
+//               slug: slugParam,
+//             },
+//           },
+//           include: {
+//             content: {
+//               include: {
+//                 media: true,
+//               },
+//             },
+//             seoMeta: true,
+//           },
+//         })
+//         .catch((err: any): undefined => {
+//           return undefined; // Return undefined instead of NextResponse
+//         });
 
-      response = {
-        data: {
-          layout: "destination",
-          destination,
-        },
-      };
+//       response = {
+//         data: {
+//           layout: "destination",
+//           destination,
+//         },
+//       };
 
-      // const {
-      //   seoMeta: { description, title, keywords, slug },
-      // } = response?.data?.destination.seoMeta?.description;
-      const title = response?.data?.destination.seoMeta?.title;
-      const keywords = response?.data?.destination.seoMeta?.keywords;
-      const description = response?.data?.destination.seoMeta?.description;
-      const slug = response?.data?.destination.seoMeta?.slug;
-      const metaDescription = removeParaTagsFromString(description as string);
+//       // const {
+//       //   seoMeta: { description, title, keywords, slug },
+//       // } = response?.data?.destination.seoMeta?.description;
+//       const title = response?.data?.destination.seoMeta?.title;
+//       const keywords = response?.data?.destination.seoMeta?.keywords;
+//       const description = response?.data?.destination.seoMeta?.description;
+//       const slug = response?.data?.destination.seoMeta?.slug;
+//       const metaDescription = removeParaTagsFromString(description as string);
 
-      return {
-        title: `${capitalizeFirstLetter(title)} - Luxafar`,
-        description: metaDescription,
-        keywords: keywords,
-        alternates: {
-          canonical: lang === "en" ? `/${slug}` : `/${lang}/${slug}`,
-          // languages: {
-          //   "en-US": `/${slug}`,
-          //   fr: `/fr/${slug}`,
-          //   it: `/it/${slug}`,
-          //   es: `/es/${slug}`,
-          //   ru: `/ru/${slug}`,
-          //   zh: `/zh/${slug}`,
-          // },
-        },
-        openGraph: {
-          title: `${capitalizeFirstLetter(title)} - Luxafar`,
-          url: `/${slug}`,
-          images: "/template/logo.png",
-          description: metaDescription,
-        },
-      };
-    } else if (route?.layout === "tour") {
-      const tourById = await prisma.tours
-        .findFirstOrThrow({
-          where: {
-            isDeleted: false,
-            seoMeta: {
-              slug: slugParam,
-            },
-          },
-          include: {
-            seoMeta: true,
-          },
-        })
-        .catch((err: any): undefined => {
-          return undefined; // Return undefined instead of NextResponse
-        });
+//       return {
+//         title: `${capitalizeFirstLetter(title)} - Luxafar`,
+//         description: metaDescription,
+//         keywords: keywords,
+//         alternates: {
+//           canonical: lang === "en" ? `/${slug}` : `/${lang}/${slug}`,
+//           // languages: {
+//           //   "en-US": `/${slug}`,
+//           //   fr: `/fr/${slug}`,
+//           //   it: `/it/${slug}`,
+//           //   es: `/es/${slug}`,
+//           //   ru: `/ru/${slug}`,
+//           //   zh: `/zh/${slug}`,
+//           // },
+//         },
+//         openGraph: {
+//           title: `${capitalizeFirstLetter(title)} - Luxafar`,
+//           url: `/${slug}`,
+//           images: "/template/logo.png",
+//           description: metaDescription,
+//         },
+//       };
+//     } else if (route?.layout === "tour") {
+//       const tourById = await prisma.tours
+//         .findFirstOrThrow({
+//           where: {
+//             isDeleted: false,
+//             seoMeta: {
+//               slug: slugParam,
+//             },
+//           },
+//           include: {
+//             seoMeta: true,
+//           },
+//         })
+//         .catch((err: any): undefined => {
+//           return undefined; // Return undefined instead of NextResponse
+//         });
 
-      response = {
-        data: {
-          layout: "tour",
-          tour: tourById,
-        },
-      };
+//       response = {
+//         data: {
+//           layout: "tour",
+//           tour: tourById,
+//         },
+//       };
 
-      const title = response?.data?.tour.seoMeta?.title;
-      const keywords = response?.data?.tour.seoMeta?.keywords;
-      const description = response?.data?.tour.seoMeta?.description;
-      const slug = response?.data?.tour.seoMeta?.slug;
+//       const title = response?.data?.tour.seoMeta?.title;
+//       const keywords = response?.data?.tour.seoMeta?.keywords;
+//       const description = response?.data?.tour.seoMeta?.description;
+//       const slug = response?.data?.tour.seoMeta?.slug;
 
-      const metaDescription = removeParaTagsFromString(description as string);
+//       const metaDescription = removeParaTagsFromString(description as string);
 
-      return {
-        title: `${capitalizeFirstLetter(title)} - Luxafar`,
-        description: metaDescription,
-        keywords: keywords,
-        alternates: {
-          canonical: lang === "en" ? `/${slug}` : `/${lang}/${slug}`,
-          // languages: {
-          //   "en-US": `/${slug}`,
-          //   fr: `/fr/${slug}`,
-          //   it: `/it/${slug}`,
-          //   es: `/es/${slug}`,
-          //   ru: `/ru/${slug}`,
-          //   zh: `/zh/${slug}`,
-          // },
-        },
-        openGraph: {
-          title: `${capitalizeFirstLetter(title)} - Luxafar`,
-          url: `/${slug}`,
-          images: "/template/logo.png",
-          description: metaDescription,
-        },
-      };
-    } else if (route?.layout === "inspiration") {
-      const inspiration = await prisma.inspirations
-        .findFirstOrThrow({
-          where: {
-            isActive: true,
-            isDeleted: false,
-            AND: [
-              {
-                seoMeta: {
-                  slug: {
-                    contains: slugParam,
-                  },
-                },
-              },
-            ],
-          },
-          include: {
-            seoMeta: true,
-            media: true,
-            destination: true,
-            inspirationDetail: {
-              orderBy: [
-                {
-                  sortId: "asc",
-                },
-                { id: "desc" },
-              ],
-              include: {
-                media: true,
-              },
-            },
-          },
-        })
-        .catch((err: any): undefined => {
-          return undefined; // Return undefined instead of NextResponse
-        });
+//       return {
+//         title: `${capitalizeFirstLetter(title)} - Luxafar`,
+//         description: metaDescription,
+//         keywords: keywords,
+//         alternates: {
+//           canonical: lang === "en" ? `/${slug}` : `/${lang}/${slug}`,
+//           // languages: {
+//           //   "en-US": `/${slug}`,
+//           //   fr: `/fr/${slug}`,
+//           //   it: `/it/${slug}`,
+//           //   es: `/es/${slug}`,
+//           //   ru: `/ru/${slug}`,
+//           //   zh: `/zh/${slug}`,
+//           // },
+//         },
+//         openGraph: {
+//           title: `${capitalizeFirstLetter(title)} - Luxafar`,
+//           url: `/${slug}`,
+//           images: "/template/logo.png",
+//           description: metaDescription,
+//         },
+//       };
+//     } else if (route?.layout === "inspiration") {
+//       const inspiration = await prisma.inspirations
+//         .findFirstOrThrow({
+//           where: {
+//             isActive: true,
+//             isDeleted: false,
+//             AND: [
+//               {
+//                 seoMeta: {
+//                   slug: {
+//                     contains: slugParam,
+//                   },
+//                 },
+//               },
+//             ],
+//           },
+//           include: {
+//             seoMeta: true,
+//             media: true,
+//             destination: true,
+//             inspirationDetail: {
+//               orderBy: [
+//                 {
+//                   sortId: "asc",
+//                 },
+//                 { id: "desc" },
+//               ],
+//               include: {
+//                 media: true,
+//               },
+//             },
+//           },
+//         })
+//         .catch((err: any): undefined => {
+//           return undefined; // Return undefined instead of NextResponse
+//         });
 
-      response = {
-        data: {
-          layout: "inspiration",
-          inspiration,
-        },
-      };
+//       response = {
+//         data: {
+//           layout: "inspiration",
+//           inspiration,
+//         },
+//       };
 
-      const title = response?.data?.inspiration.seoMeta?.title;
-      const keywords = response?.data?.inspiration.seoMeta?.keywords;
-      const description = response?.data?.inspiration.seoMeta?.description;
-      const slug = response?.data?.inspiration.seoMeta?.slug;
+//       const title = response?.data?.inspiration.seoMeta?.title;
+//       const keywords = response?.data?.inspiration.seoMeta?.keywords;
+//       const description = response?.data?.inspiration.seoMeta?.description;
+//       const slug = response?.data?.inspiration.seoMeta?.slug;
 
-      const metaDescription = removeParaTagsFromString(description as string);
+//       const metaDescription = removeParaTagsFromString(description as string);
 
-      return {
-        title: capitalizeFirstLetter(title) + " " + "- Luxafar",
-        description: metaDescription,
-        keywords: keywords,
-        alternates: {
-          canonical: lang === "en" ? `/${slug}` : `/${lang}/${slug}`,
-          // languages: {
-          //   "en-US": `/${slug}`,
-          //   fr: `/fr/${slug}`,
-          //   it: `/it/${slug}`,
-          //   es: `/es/${slug}`,
-          //   ru: `/ru/${slug}`,
-          //   zh: `/zh/${slug}`,
-          // },
-        },
-        openGraph: {
-          title: capitalizeFirstLetter(title) + " " + "- Luxafar",
-          url: `/${slug}`,
-          images: "/template/logo.png",
-          description: metaDescription,
-        },
-      };
-    } else if (route?.layout === "place") {
-      const placeById = await prisma.placeToVisit
-        .findFirstOrThrow({
-          where: {
-            isDeleted: false,
-            seoMeta: {
-              slug: slugParam,
-            },
-          },
-          include: {
-            seoMeta: true,
-          },
-        })
-        .catch((err: any): undefined => {
-          return undefined; // Return undefined instead of NextResponse
-        });
+//       return {
+//         title: capitalizeFirstLetter(title) + " " + "- Luxafar",
+//         description: metaDescription,
+//         keywords: keywords,
+//         alternates: {
+//           canonical: lang === "en" ? `/${slug}` : `/${lang}/${slug}`,
+//           // languages: {
+//           //   "en-US": `/${slug}`,
+//           //   fr: `/fr/${slug}`,
+//           //   it: `/it/${slug}`,
+//           //   es: `/es/${slug}`,
+//           //   ru: `/ru/${slug}`,
+//           //   zh: `/zh/${slug}`,
+//           // },
+//         },
+//         openGraph: {
+//           title: capitalizeFirstLetter(title) + " " + "- Luxafar",
+//           url: `/${slug}`,
+//           images: "/template/logo.png",
+//           description: metaDescription,
+//         },
+//       };
+//     } else if (route?.layout === "place") {
+//       const placeById = await prisma.placeToVisit
+//         .findFirstOrThrow({
+//           where: {
+//             isDeleted: false,
+//             seoMeta: {
+//               slug: slugParam,
+//             },
+//           },
+//           include: {
+//             seoMeta: true,
+//           },
+//         })
+//         .catch((err: any): undefined => {
+//           return undefined; // Return undefined instead of NextResponse
+//         });
 
-      response = {
-        data: {
-          layout: "place",
-          place: placeById,
-        },
-      };
+//       response = {
+//         data: {
+//           layout: "place",
+//           place: placeById,
+//         },
+//       };
 
-      const title = response?.data?.place.seoMeta?.title;
-      const keywords = response?.data?.place.seoMeta?.keywords;
-      const description = response?.data?.place.seoMeta?.description;
-      const slug = response?.data?.place.seoMeta?.slug;
+//       const title = response?.data?.place.seoMeta?.title;
+//       const keywords = response?.data?.place.seoMeta?.keywords;
+//       const description = response?.data?.place.seoMeta?.description;
+//       const slug = response?.data?.place.seoMeta?.slug;
 
-      const metaDescription = removeParaTagsFromString(description as string);
-      return {
-        title: `${capitalizeFirstLetter(title)} - Luxafar`,
-        description: metaDescription,
-        keywords: keywords,
-        alternates: {
-          canonical: lang === "en" ? `/${slug}` : `/${lang}/${slug}`,
-          // languages: {
-          //   "en-US": `/${slug}`,
-          //   fr: `/fr/${slug}`,
-          //   it: `/it/${slug}`,
-          //   es: `/es/${slug}`,
-          //   ru: `/ru/${slug}`,
-          //   zh: `/zh/${slug}`,
-          // },
-        },
-        openGraph: {
-          title: `${capitalizeFirstLetter(title)} - Luxafar`,
-          url: `/${slug}`,
-          images: "/template/logo.png",
-          description: metaDescription,
-        },
-      };
-    }
-  } catch (error) {
-    console.log(error);
-    return notFound();
-  }
-}
+//       const metaDescription = removeParaTagsFromString(description as string);
+//       return {
+//         title: `${capitalizeFirstLetter(title)} - Luxafar`,
+//         description: metaDescription,
+//         keywords: keywords,
+//         alternates: {
+//           canonical: lang === "en" ? `/${slug}` : `/${lang}/${slug}`,
+//           // languages: {
+//           //   "en-US": `/${slug}`,
+//           //   fr: `/fr/${slug}`,
+//           //   it: `/it/${slug}`,
+//           //   es: `/es/${slug}`,
+//           //   ru: `/ru/${slug}`,
+//           //   zh: `/zh/${slug}`,
+//           // },
+//         },
+//         openGraph: {
+//           title: `${capitalizeFirstLetter(title)} - Luxafar`,
+//           url: `/${slug}`,
+//           images: "/template/logo.png",
+//           description: metaDescription,
+//         },
+//       };
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     return notFound();
+//   }
+// }
 
 async function page({ params }: PageProps) {
   const { lang, params: routeParams } = await params;
