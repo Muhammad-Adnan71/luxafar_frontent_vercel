@@ -18,11 +18,12 @@ import {
   apiGetAllBespokeQuestion,
   apiPutBespokeQuestion,
 } from "@utils/services/bespoke";
-import Question from "../../bespoke/components/question";
+
 import {
   apiGetAllBecomePartnerQuestion,
   apiPutBecomePartnerQuestion,
 } from "@utils/services/becomePartner";
+import Question from "../bespoke/components/question";
 
 export default function BespokePage() {
   const router = useRouter();

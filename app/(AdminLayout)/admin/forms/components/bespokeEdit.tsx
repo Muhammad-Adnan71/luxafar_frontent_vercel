@@ -18,7 +18,7 @@ import {
   apiGetAllBespokeQuestion,
   apiPutBespokeQuestion,
 } from "@utils/services/bespoke";
-import Question from "../components/question";
+import Question from "../bespoke/components/question";
 
 export default function BespokeEdit() {
   const router = useRouter();
