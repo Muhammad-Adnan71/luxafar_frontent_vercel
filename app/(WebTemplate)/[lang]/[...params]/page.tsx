@@ -1313,8 +1313,15 @@ async function page({ params }: PageProps) {
       <PlacePage locale={lang} response={response} destinationNameString={""} />
     ),
   };
-  if (response?.data?.layout) return <>{layout[response?.data?.layout]}</>;
-  return notFound();
+  try {
+    if (response?.data?.layout) {
+      return <>{layout[response.data.layout]}</>;
+    }
+    return notFound();
+  } catch (error) {
+    console.error("Error generating page:", error);
+    return notFound(); // Optionally handle unexpected errors gracefully
+  }
 }
 
 export default page;
@@ -1403,6 +1410,7 @@ export async function generateStaticParams() {
       }
     }
   }
+  console.log(`Generating ${params} page`);
 
   return params;
 }
